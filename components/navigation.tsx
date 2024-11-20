@@ -29,7 +29,7 @@ export function Navigation() {
         <div className="flex justify-between items-center h-20">
           <Link
             href="/"
-            className={`text-2xl font-bold w-[120px] ${
+            className={`text-2xl font-bold w-[180px] ${
               isScrolled ? "text-gray-900" : "text-white"
             }`}
           >
