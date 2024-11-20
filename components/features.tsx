@@ -38,7 +38,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="py-24 bg-gray-50 h-screen relative"
+    <section className="py-24 bg-gray-50 min-h-screen relative"
     >
 
       <div 
