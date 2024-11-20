@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Volume2, VolumeX } from "lucide-react";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { QuickBooking } from "./quick-booking";
 
 export function Hero() {
@@ -11,12 +11,22 @@ export function Hero() {
   const { scrollY } = useScroll();
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isMuted, setIsMuted] = useState(true);
+  const isInView = useInView(videoRef);
   
   const titleY = useTransform(scrollY, [0, 500], [0, 150]);
   const textY = useTransform(scrollY, [0, 500], [0, 150]);
   const buttonY = useTransform(scrollY, [0, 500], [0, 150]);
   const videoY = useTransform(scrollY, [0, 1000], [0, -200]);
   const bookY = useTransform(scrollY, [0, 500], [0, -200]);
+
+  useEffect(() => {
+    if (isInView && videoRef.current?.paused) {
+      videoRef.current.play()
+    }
+    if (!isInView && videoRef.current &&!videoRef.current?.paused) {
+      videoRef.current.pause()
+    }
+  }, [isInView])
 
   return (
     <div ref={ref} className="relative h-screen overflow-hidden">
@@ -29,6 +39,7 @@ export function Hero() {
           ref={videoRef}
           playsInline
           autoPlay
+          loop
           muted={isMuted}
           className="absolute inset-0 w-full h-full object-cover"
         >
