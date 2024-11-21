@@ -43,7 +43,7 @@ export function Hero() {
           muted={isMuted}
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/assets/videos/hero-v0.mov" type="video/quicktime" />
+          <source src="/assets/videos/hero-v0.mov" type="video/mov" />
         </video>
         <Image
           src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5"
