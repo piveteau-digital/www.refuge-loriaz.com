@@ -1,75 +1,80 @@
 "use client";
 
-import { useState } from "react";
-import { Calendar } from "@/components/ui/calendar";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useEffect } from 'react';
+import Script from 'next/script';
 
 interface QuickBookingProps {
   className?: string;
   small?:boolean;
 }
 
+
+const Reservation = () => {
+  
+};
+
+export default Reservation;
+
 export function QuickBooking({ className = "", small = false}: QuickBookingProps) {
-  const [date, setDate] = useState<Date | undefined>(new Date());
-  const [guests, setGuests] = useState(2);
+  useEffect(() => {
+    // Create and append iframe after component mounts
+    const url = encodeURIComponent(window.parent.document.URL);
+    const iframe = document.createElement('iframe');
+    
+    iframe.id = 'nuit-resa_iframe-resa';
+    iframe.src = `https://public.nuit-resa.com/reservations-75969b35e34701dccd555a3557f615e2.html?h=&l=FR&sh=1&url=${url}`;
+    iframe.frameBorder = '0';
+    iframe.width = '100%';
+    iframe.height = '1500';
+    
+    iframe.onload = () => window.parent.parent.scrollTo(0, 0);
+    
+    const container = document.getElementById('reservation-container');
+    if (container) {
+      container.appendChild(iframe);
+    }
+  }, []);
 
   return (
-    <div className={className} >
+    <>
+      <Script 
+        src="https://public.nuit-resa.com/js/forms-clients-inc.js"
+        strategy="afterInteractive"
+      />
+      <link 
+        rel="stylesheet" 
+        href="https://public.nuit-resa.com/css/forms-clients-inc.css" 
+        type="text/css" 
+      />
+
+<div className={className} >
       <section className={cn(
         {
           "py-20 bg-white/80": !small,
           "py-8": small
         }
       )}>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-h-[75dvh] overflow-y-scroll bg-white rounded-xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8"
+            className="max-w-4xl mx-auto  shadow-lg p-8"
           >
-            <h2 className="text-3xl font-bold text-center mb-8">Quick Booking</h2>
             <div className={cn("grid grid-cols-1 gap-8",{
               "md:grid-cols-2": !small
             })}>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Select Dates
-                </label>
-                <Calendar
-                  mode="single"
-                  selected={date}
-                  onSelect={setDate}
-                  className="rounded-md border"
-                />
+
+
+
+      <div id="reservation-container" />
               </div>
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Number of Guests
-                  </label>
-                  <select
-                    value={guests}
-                    onChange={(e) => setGuests(Number(e.target.value))}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  >
-                    {[1, 2, 3, 4, 5, 6].map((num) => (
-                      <option key={num} value={num}>
-                        {num} {num === 1 ? "Guest" : "Guests"}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <Button className="w-full bg-sky-400 hover:bg-sky-700 text-white">
-                  Check Availability
-                </Button>
+              </motion.div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+              </section>
+              </div>
+    </>
   );
 }
