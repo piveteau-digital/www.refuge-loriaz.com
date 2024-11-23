@@ -13,6 +13,20 @@ export const metadata: Metadata = {
       url: "/assets/images/icon.png"
     }
   ],
+  openGraph: {
+    title: 'Refuge de Loriaz - Mountain Refuge at 2020m',
+    description: 'Experience the beauty of the Alps at Refuge de Loriaz, a mountain refuge located at 2020m altitude. Book your stay and enjoy winter sports in a breathtaking setting.',
+    images: [
+      "/assets/images/og.jpeg"
+    ]
+  },
+  twitter: {
+    title: 'Refuge de Loriaz - Mountain Refuge at 2020m',
+    description: 'Experience the beauty of the Alps at Refuge de Loriaz, a mountain refuge located at 2020m altitude. Book your stay and enjoy winter sports in a breathtaking setting.',
+    images: [
+      "/assets/images/og.jpeg"
+    ]
+  },
   title: 'Refuge de Loriaz - Mountain Refuge at 2020m',
   description: 'Experience the beauty of the Alps at Refuge de Loriaz, a mountain refuge located at 2020m altitude. Book your stay and enjoy winter sports in a breathtaking setting.',
 };
