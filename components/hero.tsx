@@ -39,11 +39,10 @@ export function Hero() {
           ref={videoRef}
           playsInline
           autoPlay
-          loop
           muted={isMuted}
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/assets/videos/hero-v0.mov" type="video/mov" />
+          <source src="/assets/videos/hero-v0.mp4" type="video/mp4" />
         </video>
         <Image
           src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5"

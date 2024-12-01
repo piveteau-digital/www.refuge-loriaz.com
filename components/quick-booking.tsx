@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { useEffect } from 'react';
+import { ReactHTMLElement, useEffect, useState } from 'react';
 import Script from 'next/script';
 
 interface QuickBookingProps {
@@ -18,24 +18,34 @@ const Reservation = () => {
 export default Reservation;
 
 export function QuickBooking({ className = "", small = false}: QuickBookingProps) {
+  const [iframElem, setIframeElem] = useState<HTMLIFrameElement | null>(null);
+
   useEffect(() => {
     // Create and append iframe after component mounts
     const url = encodeURIComponent(window.parent.document.URL);
     const iframe = document.createElement('iframe');
     
     iframe.id = 'nuit-resa_iframe-resa';
-    iframe.src = `https://public.nuit-resa.com/reservations-75969b35e34701dccd555a3557f615e2.html?h=&l=FR&sh=1&url=${url}`;
+    iframe.src = `https://public.nuit-resa.com/calendrier-0-702a5efa66ab1035b8bf68c7aaace334.html?l=FR&redirection=1&url=${url}` //`https://public.nuit-resa.com/calendrier-0-702a5efa66ab1035b8bf68c7aaace334.html?l=FR&redirection=1&url=${url}`;
     iframe.frameBorder = '0';
     iframe.width = '100%';
-    iframe.height = '1500';
+    iframe.height = '400px';
+
+    // <iframe src="https://public.nuit-resa.com/calendrier-0-702a5efa66ab1035b8bf68c7aaace334.html?l=FR&redirection=1&" border="0" frameBorder="0" width="400" height="380"></iframe>
     
     iframe.onload = () => window.parent.parent.scrollTo(0, 0);
     
-    const container = document.getElementById('reservation-container');
-    if (container) {
-      container.appendChild(iframe);
-    }
+    setIframeElem(iframe);
   }, []);
+
+  useEffect(() => {
+    const container = document.getElementById('reservation-container');
+    const isHere = document.getElementById("nuit-resa_iframe-resa");
+
+    if (container && iframElem && !isHere) {
+      container.appendChild(iframElem);
+    }
+  }, [iframElem])
 
   return (
     <>
