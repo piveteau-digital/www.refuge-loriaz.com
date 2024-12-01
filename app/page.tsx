@@ -1,3 +1,4 @@
+"use client"
 import { Hero } from '@/components/hero';
 import { Features } from '@/components/features';
 import { QuickBooking } from '@/components/quick-booking';
@@ -8,7 +9,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <QuickBooking />
       <Features />
       <Weather />
       <Testimonials />

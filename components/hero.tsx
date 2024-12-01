@@ -102,7 +102,7 @@ export function Hero() {
             </div>
 
             {/* Right column - QuickBooking */}
-            <div className="hidden lg:flex items-center justify-center lg:justify-end">
+            <div className="max-lg:absolute max-lg:top-full lg:flex items-center justify-center lg:justify-end">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -126,8 +126,6 @@ export function Hero() {
       >
         <ChevronDown className="w-8 h-8 animate-bounce" />
       </motion.div>
-
-      
     </div>
   );
 }

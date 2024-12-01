@@ -26,12 +26,13 @@ export function QuickBooking({ className = "", small = false}: QuickBookingProps
     const iframe = document.createElement('iframe');
     
     iframe.id = 'nuit-resa_iframe-resa';
-    iframe.src = `https://public.nuit-resa.com/calendrier-0-702a5efa66ab1035b8bf68c7aaace334.html?l=FR&redirection=1&url=${url}` //`https://public.nuit-resa.com/calendrier-0-702a5efa66ab1035b8bf68c7aaace334.html?l=FR&redirection=1&url=${url}`;
+    iframe.src = `https://public.nuit-resa.com/calendrier-0-702a5efa66ab1035b8bf68c7aaace334.html?l=FR&redirection=1&url=${url}`;
     iframe.frameBorder = '0';
     iframe.width = '100%';
-    iframe.height = '400px';
-
-    // <iframe src="https://public.nuit-resa.com/calendrier-0-702a5efa66ab1035b8bf68c7aaace334.html?l=FR&redirection=1&" border="0" frameBorder="0" width="400" height="380"></iframe>
+    iframe.height = '600px';
+    iframe.style.minHeight = '500px';
+    iframe.style.display = 'block';
+    iframe.style.maxWidth = '100%';
     
     iframe.onload = () => window.parent.parent.scrollTo(0, 0);
     
@@ -66,12 +67,12 @@ export function QuickBooking({ className = "", small = false}: QuickBookingProps
           "py-8": small
         }
       )}>
-        <div className="container mx-auto px-4 max-h-[75dvh] overflow-y-scroll bg-white rounded-xl">
+        <div className="container mx-auto px-4 bg-white rounded-xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto  shadow-lg p-8"
+            className="max-w-4xl mx-auto shadow-lg p-4 sm:p-8"
           >
             <div className={cn("grid grid-cols-1 gap-8",{
               "md:grid-cols-2": !small
@@ -79,7 +80,7 @@ export function QuickBooking({ className = "", small = false}: QuickBookingProps
 
 
 
-      <div id="reservation-container" />
+      <div id="reservation-container" className="w-full min-h-[500px]" />
               </div>
               </motion.div>
               </div>
