@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Cloud, Sun, Thermometer, Wind } from "lucide-react";
+import { t } from "@/lib/i18n";
 
 export function Weather() {
   return (
@@ -13,27 +14,27 @@ export function Weather() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl font-bold text-center mb-12">Current Weather</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">{t('weather.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <Thermometer className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Temperature</h3>
-              <p className="text-4xl font-bold">12°C</p>
+              <h3 className="text-xl font-semibold mb-2">{t('weather.temperature.title')}</h3>
+              <p className="text-4xl font-bold">{t('weather.temperature.value')}</p>
             </div>
             <div className="text-center">
               <Cloud className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Conditions</h3>
-              <p className="text-4xl font-bold">Partly Cloudy</p>
+              <h3 className="text-xl font-semibold mb-2">{t('weather.conditions.title')}</h3>
+              <p className="text-4xl font-bold">{t('weather.conditions.value')}</p>
             </div>
             <div className="text-center">
               <Wind className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Wind Speed</h3>
-              <p className="text-4xl font-bold">15 km/h</p>
+              <h3 className="text-xl font-semibold mb-2">{t('weather.wind.title')}</h3>
+              <p className="text-4xl font-bold">{t('weather.wind.value')}</p>
             </div>
             <div className="text-center">
               <Sun className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">UV Index</h3>
-              <p className="text-4xl font-bold">Moderate</p>
+              <h3 className="text-xl font-semibold mb-2">{t('weather.uv.title')}</h3>
+              <p className="text-4xl font-bold">{t('weather.uv.value')}</p>
             </div>
           </div>
         </motion.div>

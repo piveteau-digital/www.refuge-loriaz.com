@@ -1,91 +1,80 @@
 "use client";
 
+import { useState } from "react";
+import { Calendar } from "@/components/ui/calendar";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ReactHTMLElement, useEffect, useState } from 'react';
-import Script from 'next/script';
+import { t } from "@/lib/i18n";
+import { fr } from 'date-fns/locale';
 
 interface QuickBookingProps {
   className?: string;
-  small?:boolean;
+  small?: boolean;
 }
 
-
-const Reservation = () => {
-  
-};
-
-export default Reservation;
-
-export function QuickBooking({ className = "", small = false}: QuickBookingProps) {
-  const [iframElem, setIframeElem] = useState<HTMLIFrameElement | null>(null);
-
-  useEffect(() => {
-    // Create and append iframe after component mounts
-    const url = encodeURIComponent(window.parent.document.URL);
-    const iframe = document.createElement('iframe');
-    
-    iframe.id = 'nuit-resa_iframe-resa';
-    iframe.src = `https://public.nuit-resa.com/calendrier-0-702a5efa66ab1035b8bf68c7aaace334.html?l=FR&redirection=1&url=${url}`;
-    iframe.frameBorder = '0';
-    iframe.width = '100%';
-    iframe.height = '600px';
-    iframe.style.minHeight = '500px';
-    iframe.style.display = 'block';
-    iframe.style.maxWidth = '100%';
-    
-    iframe.onload = () => window.parent.parent.scrollTo(0, 0);
-    
-    setIframeElem(iframe);
-  }, []);
-
-  useEffect(() => {
-    const container = document.getElementById('reservation-container');
-    const isHere = document.getElementById("nuit-resa_iframe-resa");
-
-    if (container && iframElem && !isHere) {
-      container.appendChild(iframElem);
-    }
-  }, [iframElem])
+export function QuickBooking({ className = "", small = false }: QuickBookingProps) {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [guests, setGuests] = useState(2);
 
   return (
-    <>
-      <Script 
-        src="https://public.nuit-resa.com/js/forms-clients-inc.js"
-        strategy="afterInteractive"
-      />
-      <link 
-        rel="stylesheet" 
-        href="https://public.nuit-resa.com/css/forms-clients-inc.css" 
-        type="text/css" 
-      />
-
-<div className={className} >
+    <div className={className}>
       <section className={cn(
         {
           "py-20 bg-white/80": !small,
           "py-8": small
         }
       )}>
-        <div className="container mx-auto px-4 bg-white rounded-xl">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto shadow-lg p-4 sm:p-8"
+            className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8"
           >
-            <div className={cn("grid grid-cols-1 gap-8",{
+            <h2 className="text-3xl font-bold text-center mb-8">
+              {t('home.quickBooking.title')}
+            </h2>
+            <div className={cn("grid grid-cols-1 gap-8", {
               "md:grid-cols-2": !small
             })}>
-
-
-
-      <div id="reservation-container" className="w-full min-h-[500px]" />
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('home.quickBooking.dates')}
+                </label>
+                <Calendar
+                  mode="single"
+                  selected={date}
+                  onSelect={setDate}
+                  locale={fr}
+                  className="rounded-md border"
+                />
               </div>
-              </motion.div>
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t('home.quickBooking.guests')}
+                  </label>
+                  <select
+                    value={guests}
+                    onChange={(e) => setGuests(Number(e.target.value))}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  >
+                    {[1, 2, 3, 4, 5, 6].map((num) => (
+                      <option key={num} value={num}>
+                        {num} {num === 1 ? t('home.quickBooking.guest') : t('home.quickBooking.guests')}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <Button className="w-full bg-sky-400 hover:bg-sky-700 text-white">
+                  {t('home.quickBooking.check')}
+                </Button>
               </div>
-              </section>
-              </div>
-    </>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }

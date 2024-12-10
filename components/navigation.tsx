@@ -5,6 +5,17 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import { t } from "@/lib/i18n";
+
+const navItems = [
+  { name: () => t('navigation.home'), href: "/" },
+  { name: () => t('navigation.services'), href: "/services" },
+  { name: () => t('navigation.about'), href: "/a-propos" },
+  { name: () => t('navigation.access'), href: "/acces" },
+  { name: () => t('navigation.contact'), href: "/contact" },
+  { name: () => t('navigation.prices'), href: "/tarifs" },
+];
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,49 +40,47 @@ export function Navigation() {
         <div className="flex justify-between items-center h-20">
           <Link
             href="/"
-            className={`text-2xl font-bold w-[180px] ${
-              isScrolled ? "text-gray-900" : "text-white"
-            }`}
+            className="text-2xl font-bold w-[180px]"
           >
             <Image 
-              src={"/assets/images/logo.png"}
+              src="/assets/images/logo.png"
               width={200}
               height={80}
-              layout="responsive"
-              alt="logo refuge"
+              alt="Logo Refuge de Loriaz"
+              className="w-auto h-12"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {["Rooms", "Activities", "Restaurant", "Contact"].map((item) => (
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
               <Link
-                key={item}
-                href={`/${item.toLowerCase()}`}
+                key={item.name()}
+                href={item.href}
                 className={`${
                   isScrolled ? "text-gray-900" : "text-white"
                 } hover:opacity-75 transition-opacity`}
               >
-                {item}
+                {item.name()}
               </Link>
             ))}
-            <Link
-              href="/book"
+            <Button
+              asChild
               className={`px-4 py-2 rounded-full ${
                 isScrolled
                   ? "bg-sky-400 text-white"
                   : "bg-white text-gray-900"
               } hover:opacity-90 transition-all`}
             >
-              Book Now
-            </Link>
+              <Link href="/reservation">{t('common.book')}</Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            aria-label={t('common.menu')}
           >
             {isOpen ? (
               <X
@@ -98,22 +107,22 @@ export function Navigation() {
             className="md:hidden bg-white"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {["Rooms", "Activities", "Restaurant", "Contact"].map((item) => (
+              {navItems.map((item) => (
                 <Link
-                  key={item}
-                  href={`/${item.toLowerCase()}`}
+                  key={item.name()}
+                  href={item.href}
                   className="block px-3 py-2 text-gray-900 hover:bg-gray-100 rounded-md"
                   onClick={() => setIsOpen(false)}
                 >
-                  {item}
+                  {item.name()}
                 </Link>
               ))}
               <Link
-                href="/book"
-                className="block px-3 py-2 text-white bg-blue-600 rounded-md text-center"
+                href="/reservation"
+                className="block px-3 py-2 text-white bg-sky-400 rounded-md text-center"
                 onClick={() => setIsOpen(false)}
               >
-                Book Now
+                {t('common.book')}
               </Link>
             </div>
           </motion.div>

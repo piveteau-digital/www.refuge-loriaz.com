@@ -1,0 +1,173 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Heart, Mountain, Users } from "lucide-react";
+
+const teamMembers = [
+  {
+    name: "Jean-Pierre Martin",
+    role: "Gardien du refuge",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
+    description: "Passionné de montagne depuis 30 ans, Jean-Pierre veille sur le refuge et ses visiteurs avec bienveillance."
+  },
+  {
+    name: "Marie Dubois",
+    role: "Chef cuisinière",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+    description: "Experte en cuisine traditionnelle savoyarde, Marie régale les visiteurs avec ses plats authentiques."
+  }
+];
+
+const timeline = [
+  {
+    year: "1925",
+    title: "Construction du refuge",
+    description: "Le refuge original fut construit par le Club Alpin Français."
+  },
+  {
+    year: "1962",
+    title: "Première rénovation",
+    description: "Agrandissement et modernisation des installations."
+  },
+  {
+    year: "1998",
+    title: "Rénovation majeure",
+    description: "Installation de panneaux solaires et amélioration du confort."
+  },
+  {
+    year: "2020",
+    title: "Nouveau départ",
+    description: "Reprise du refuge par l'équipe actuelle et rénovations intérieures."
+  }
+];
+
+export default function AboutPage() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="relative h-[50vh] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
+          alt="Vue du Refuge de Loriaz"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Notre Histoire</h1>
+            <p className="text-lg md:text-xl max-w-2xl mx-auto px-4">
+              Un refuge authentique au cœur des Alpes depuis 1925
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Values Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <Mountain className="w-12 h-12 mx-auto mb-4 text-sky-400" />
+              <h3 className="text-xl font-bold mb-2">Authenticité</h3>
+              <p className="text-gray-600">
+                Un véritable refuge de montagne préservant son caractère traditionnel
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-center"
+            >
+              <Heart className="w-12 h-12 mx-auto mb-4 text-sky-400" />
+              <h3 className="text-xl font-bold mb-2">Passion</h3>
+              <p className="text-gray-600">
+                Une équipe passionnée au service de votre expérience en montagne
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="text-center"
+            >
+              <Users className="w-12 h-12 mx-auto mb-4 text-sky-400" />
+              <h3 className="text-xl font-bold mb-2">Convivialité</h3>
+              <p className="text-gray-600">
+                Un lieu de rencontre et de partage pour tous les amoureux de la montagne
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Notre Histoire</h2>
+          <div className="max-w-3xl mx-auto">
+            {timeline.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center mb-8"
+              >
+                <div className="w-24 text-right pr-4">
+                  <span className="text-sky-400 font-bold">{item.year}</span>
+                </div>
+                <div className="w-4 h-4 bg-sky-400 rounded-full relative">
+                  <div className="absolute w-px h-full bg-sky-400 left-1/2 transform -translate-x-1/2" />
+                </div>
+                <div className="flex-1 pl-4">
+                  <h3 className="font-bold mb-1">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Notre Équipe</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center text-center"
+              >
+                <div className="relative w-32 h-32 mb-4">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="rounded-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                <p className="text-sky-400 mb-2">{member.role}</p>
+                <p className="text-gray-600">{member.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
