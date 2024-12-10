@@ -43,7 +43,7 @@ export function Hero() {
           muted={isMuted}
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/assets/videos/hero-v0.mov" type="video/mov" />
+          <source src="/assets/videos/hero-v0.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
