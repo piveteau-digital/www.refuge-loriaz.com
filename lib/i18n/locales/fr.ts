@@ -26,6 +26,7 @@ export const fr = {
     },
     quickBooking: {
       title: "Disponibilité",
+      guest: "Personne",
       guests: "Personnes",
       check: "Vérifier la disponibilité",
       dates: "Dates"

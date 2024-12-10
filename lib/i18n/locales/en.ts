@@ -26,6 +26,7 @@ export const en = {
     },
     quickBooking: {
       title: "Availability",
+      guest: "Guest",
       guests: "Guests",
       check: "Check availability",
       dates: "Dates"
