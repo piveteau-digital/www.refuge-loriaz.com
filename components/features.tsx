@@ -2,42 +2,44 @@
 
 import { motion } from "framer-motion";
 import { Mountain, Utensils, Wifi, Coffee, Snowflake, Map } from "lucide-react";
-import { t } from "@/lib/i18n";
-
-const features = [
-  {
-    icon: Mountain,
-    title: () => t('features.location.title'),
-    description: () => t('features.location.description')
-  },
-  {
-    icon: Utensils,
-    title: () => t('features.restaurant.title'),
-    description: () => t('features.restaurant.description')
-  },
-  {
-    icon: Wifi,
-    title: () => t('features.amenities.title'),
-    description: () => t('features.amenities.description')
-  },
-  {
-    icon: Coffee,
-    title: () => t('features.atmosphere.title'),
-    description: () => t('features.atmosphere.description')
-  },
-  {
-    icon: Snowflake,
-    title: () => t('features.winter.title'),
-    description: () => t('features.winter.description')
-  },
-  {
-    icon: Map,
-    title: () => t('features.hiking.title'),
-    description: () => t('features.hiking.description')
-  }
-];
+import { useTranslations } from "@/config/@next-intl";
 
 export function Features() {
+  const t = useTranslations("landing")
+  const features = [
+    {
+      icon: Mountain,
+      title: () => t('features.location.title'),
+      description: () => t('features.location.description')
+    },
+    {
+      icon: Utensils,
+      title: () => t('features.restaurant.title'),
+      description: () => t('features.restaurant.description')
+    },
+    {
+      icon: Wifi,
+      title: () => t('features.amenities.title'),
+      description: () => t('features.amenities.description')
+    },
+    {
+      icon: Coffee,
+      title: () => t('features.atmosphere.title'),
+      description: () => t('features.atmosphere.description')
+    },
+    {
+      icon: Snowflake,
+      title: () => t('features.winter.title'),
+      description: () => t('features.winter.description')
+    },
+    {
+      icon: Map,
+      title: () => t('features.hiking.title'),
+      description: () => t('features.hiking.description')
+    }
+  ];
+  
+
   return (
     <section className="py-24 bg-gray-50 min-h-screen relative">
       <div 
@@ -56,9 +58,9 @@ export function Features() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">{t('home.features.title')}</h2>
+          <h2 className="text-4xl font-bold mb-4">{t('features.title')}</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            {t('home.features.subtitle')}
+            {t('features.subtitle')}
           </p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
