@@ -1,9 +1,10 @@
 "use client";
 
+import { Link } from "@/navigation";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { QuickBooking } from "./quick-booking";
+// import { QuickBooking } from "./quick-booking";
 
 export function Hero({ hero, common }: IntlMessages) {
   const ref = useRef<HTMLDivElement>(null);
@@ -16,7 +17,7 @@ export function Hero({ hero, common }: IntlMessages) {
   const textY = useTransform(scrollY, [0, 500], [0, 150]);
   const buttonY = useTransform(scrollY, [0, 500], [0, 150]);
   const videoY = useTransform(scrollY, [0, 1000], [0, -200]);
-  const bookY = useTransform(scrollY, [0, 500], [0, -200]);
+  // const bookY = useTransform(scrollY, [0, 500], [0, -200]);
 
   useEffect(() => {
     if (isInView && videoRef.current?.paused) {
@@ -44,7 +45,7 @@ export function Hero({ hero, common }: IntlMessages) {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/20">
         <div className="container mx-auto px-4 h-full">
-          <div className="h-full lg:flex lg:gap-8 items-center lg:justify-between lg:px-10 2xl:px-28 max-lg:grid">
+          <div className="h-full lg:flex lg:gap-8 items-center justify-center lg:px-10 2xl:px-28 max-lg:grid">
             <div className="flex my-auto flex-col justify-center items-center lg:items-start text-center lg:text-left text-white">
               <button
                 onClick={() => setIsMuted(!isMuted)}
@@ -82,11 +83,13 @@ export function Hero({ hero, common }: IntlMessages) {
                 transition={{ duration: 0.3, delay: 0 }}
                 className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all lg:self-start"
               >
+                <Link href={"#booking" as "/"}>
                 {common.book}
+                </Link>
               </motion.button>
             </div>
 
-            <div className="hidden lg:flex items-center justify-center lg:justify-end">
+            {/* <div className="hidden lg:flex items-center justify-center lg:justify-end hidden">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -99,7 +102,7 @@ export function Hero({ hero, common }: IntlMessages) {
                   className="max-w-sm flex flex-col justify-center items-center overflow-hidden"
                 />
               </motion.div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

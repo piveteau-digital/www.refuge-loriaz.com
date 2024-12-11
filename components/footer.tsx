@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { t } from "@/lib/i18n";
-import * as appInfos from "@/package.json";
+import appInfos from "@/package.json";
 
 export function Footer() {
   return (

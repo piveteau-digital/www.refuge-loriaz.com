@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { fr } from "date-fns/locale";
 import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 
 interface QuickBookingProps {
   className?: string;
@@ -76,8 +77,18 @@ export function QuickBooking({
                     ))}
                   </select>
                 </div>
-                <Button className="w-full bg-sky-400 hover:bg-sky-700 text-white">
+                <Button
+                className="w-full bg-sky-400 hover:bg-sky-700 text-white">
+              
+                <Link href={{
+                  pathname: "/booking",
+                  query: {
+                    date: date?.toISOString()?.split("T")?.[0],
+                    guests,
+                  }
+                }} >
                   {tLanding("quickBooking.check")}
+                </Link>
                 </Button>
               </div>
             </div>

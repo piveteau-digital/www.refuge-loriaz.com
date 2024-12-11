@@ -6,6 +6,7 @@ import { Toaster } from "sonner";
 import { defaultLocale } from "@/navigation";
 import { ErrorBoundary } from "@/components/utils/ErrorBoundaries";
 import { ThemeProvider } from "@/components/theme-provider";
+import ScrollManager from "@/components/utils/ScrollManager";
 
 export const Providers = ({
   children,
@@ -41,6 +42,7 @@ export const Providers = ({
         </ThemeProvider>
         <Toaster />
       </NextIntlClientProvider>
+      <ScrollManager />
     </ErrorBoundary>
   );
 };
