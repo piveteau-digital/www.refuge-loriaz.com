@@ -12,8 +12,7 @@
     "ts": "tsc --noEmit",
     "email": "email dev",
     "stripe-webhooks": "stripe listen --forward-to localhost:3000/api/webhooks/stripe",
-    "vercel-build": "prisma generate && prisma migrate deploy && NODE_ENV=production pnpm build",
-    "postinstall": "patch-package && prisma generate",
+    "vercel-build": "NODE_ENV=production pnpm build",
     "postbuild": "next-sitemap --config ./next-sitemap.config.mjs",
     "clean": "next lint --fix && tsc --noEmit && prettier --write ."
   },
