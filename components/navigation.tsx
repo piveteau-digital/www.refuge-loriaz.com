@@ -122,7 +122,7 @@ export function Navigation() {
                 className="block px-3 py-2 text-white bg-sky-400 rounded-md text-center"
                 onClick={() => setIsOpen(false)}
               >
-                {t("common.book")}
+                {t("book")}
               </Link>
             </div>
           </motion.div>
