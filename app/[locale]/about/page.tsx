@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Heart, Mountain, Users } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const teamMembers = [
   {
@@ -43,6 +44,8 @@ const timeline = [
 ];
 
 export default function AboutPage() {
+  const t = useTranslations("about");
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -56,9 +59,11 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Notre Histoire</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              {t("title")}
+            </h1>
             <p className="text-lg md:text-xl max-w-2xl mx-auto px-4">
-              Un refuge authentique au cœur des Alpes depuis 1925
+              {t("message")}
             </p>
           </div>
         </div>
@@ -68,6 +73,7 @@ export default function AboutPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -75,9 +81,11 @@ export default function AboutPage() {
               className="text-center"
             >
               <Mountain className="w-12 h-12 mx-auto mb-4 text-sky-400" />
-              <h3 className="text-xl font-bold mb-2">Authenticité</h3>
+              <h3 className="text-xl font-bold mb-2">
+                {t("attributes.authenticity.title")}
+              </h3>
               <p className="text-gray-600">
-                Un véritable refuge de montagne préservant son caractère traditionnel
+              {t("attributes.authenticity.message")}
               </p>
             </motion.div>
             <motion.div
@@ -88,9 +96,11 @@ export default function AboutPage() {
               className="text-center"
             >
               <Heart className="w-12 h-12 mx-auto mb-4 text-sky-400" />
-              <h3 className="text-xl font-bold mb-2">Passion</h3>
+              <h3 className="text-xl font-bold mb-2">
+                {t("attributes.passion.title")}
+              </h3>
               <p className="text-gray-600">
-                Une équipe passionnée au service de votre expérience en montagne
+              {t("attributes.passion.message")}
               </p>
             </motion.div>
             <motion.div
@@ -101,9 +111,11 @@ export default function AboutPage() {
               className="text-center"
             >
               <Users className="w-12 h-12 mx-auto mb-4 text-sky-400" />
-              <h3 className="text-xl font-bold mb-2">Convivialité</h3>
+              <h3 className="text-xl font-bold mb-2">
+                {t("attributes.convivial.title")}
+              </h3>
               <p className="text-gray-600">
-                Un lieu de rencontre et de partage pour tous les amoureux de la montagne
+              {t("attributes.convivial.message")}
               </p>
             </motion.div>
           </div>
@@ -113,9 +125,11 @@ export default function AboutPage() {
       {/* Timeline Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Notre Histoire</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            {t("timeline.title")}
+          </h2>
           <div className="max-w-3xl mx-auto">
-            {timeline.map((item, index) => (
+            {t.raw("timeline.items").map((item: any, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
@@ -142,9 +156,11 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Notre Équipe</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            {t("team.title")}
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {teamMembers.map((member, index) => (
+            {t.raw("team.items").map((member: any, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
