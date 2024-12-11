@@ -1,187 +1,78 @@
-"use client";
+"use client";  
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Calendar } from "@/components/ui/calendar";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select } from "@/components/ui/select";
-import { fr } from "date-fns/locale";
+import { motion } from "framer-motion";  
+import { useEffect, useRef } from "react";  
+import { useSearchParams } from "next/navigation";  
+// import { RESERVATION_CONFIG } from "@/config/reservation";  
 
-export default function ReservationPage() {
-  const [date, setDate] = useState<Date | undefined>(new Date());
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    guests: "2",
-    roomType: "dortoir",
-    mealPlan: "demi-pension",
-  });
+// config/reservation.ts  
+export const RESERVATION_CONFIG = {  
+  BASE_URL: 'https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html',  
+  HOTEL_ID: 'b4hcmajfxr',  
+  CSS_URL: 'https://public.nuit-resa.com/css/forms-clients-inc.css',  
+  JS_URL: 'https://public.nuit-resa.com/js/forms-clients-inc.js',  
+};  
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log(formData);
-    // Redirect to confirmation page
-    window.location.href = "/reservation/confirmation";
-  };
+export default function ReservationPage({params: {locale}}: any) {  
+  const iframeRef = useRef<HTMLIFrameElement>(null);  
+  const searchParams = useSearchParams();  
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  useEffect(() => {  
+    const date = searchParams.get('date') || '';  
+    const guests = searchParams.get('guests') || '';  
 
-  return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="container mx-auto px-4 py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8"
-        >
-          <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
-            Réservez votre séjour
-          </h1>
+    const iframeUrl = new URL(RESERVATION_CONFIG.BASE_URL);  
+    iframeUrl.searchParams.set('h', RESERVATION_CONFIG.HOTEL_ID);  
+    iframeUrl.searchParams.set('l', (locale || "fr").toUpperCase());  
+    iframeUrl.searchParams.set('sh', '1');  
+    iframeUrl.searchParams.set('url', encodeURIComponent(window.location.href));  
+    if (date) iframeUrl.searchParams.set('date_arrivee', date);
+    if (guests) iframeUrl.searchParams.set('guests', guests);
 
-          <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Personal Information */}
-              <div className="space-y-4">
-                <h2 className="text-xl font-semibold mb-4">
-                  Informations personnelles
-                </h2>
+    if (iframeRef.current) {  
+      iframeRef.current.src = iframeUrl.toString();  
+    }  
 
-                <div className="space-y-2">
-                  <Label htmlFor="firstName">Prénom</Label>
-                  <Input
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
+    // Add external resources  
+    const link = document.createElement('link');  
+    link.rel = 'stylesheet';  
+    link.href = RESERVATION_CONFIG.CSS_URL;  
+    document.head.appendChild(link);  
 
-                <div className="space-y-2">
-                  <Label htmlFor="lastName">Nom</Label>
-                  <Input
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
+    const script = document.createElement('script');  
+    script.src = RESERVATION_CONFIG.JS_URL;  
+    script.async = true;  
+    document.body.appendChild(script);  
 
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
+    return () => {  
+      document.head.removeChild(link);  
+      document.body.removeChild(script);  
+    };  
+  }, [searchParams]);  
 
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Téléphone</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-              </div>
+  return (  
+    <div className="min-h-screen bg-gray-50 pt-20">  
+      <div className="container mx-auto px-4 py-8">  
+        <motion.div  
+          initial={{ opacity: 0, y: 20 }}  
+          animate={{ opacity: 1, y: 0 }}  
+          className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8"  
+        >  
+          <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">  
+            Réservez votre séjour  
+          </h1>  
 
-              {/* Booking Details */}
-              <div className="space-y-4">
-                <h2 className="text-xl font-semibold mb-4">
-                  Détails du séjour
-                </h2>
-
-                <div className="space-y-2">
-                  <Label>{"Date d'arrivée"}</Label>
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    locale={fr}
-                    className="rounded-md border"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="guests">Nombre de personnes</Label>
-                  <select
-                    id="guests"
-                    name="guests"
-                    value={formData.guests}
-                    onChange={handleInputChange}
-                    className="w-full rounded-md border border-gray-300 p-2"
-                    required
-                  >
-                    {[1, 2, 3, 4, 5, 6].map((num) => (
-                      <option key={num} value={num}>
-                        {num} {num === 1 ? "personne" : "personnes"}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="roomType">{"Type d'hébergement"}</Label>
-                  <select
-                    id="roomType"
-                    name="roomType"
-                    value={formData.roomType}
-                    onChange={handleInputChange}
-                    className="w-full rounded-md border border-gray-300 p-2"
-                    required
-                  >
-                    <option value="dortoir">Dortoir collectif</option>
-                    <option value="chambre">Chambre privative</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="mealPlan">Formule repas</Label>
-                  <select
-                    id="mealPlan"
-                    name="mealPlan"
-                    value={formData.mealPlan}
-                    onChange={handleInputChange}
-                    className="w-full rounded-md border border-gray-300 p-2"
-                    required
-                  >
-                    <option value="demi-pension">Demi-pension</option>
-                    <option value="nuit">Nuit seule</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <Button
-              type="submit"
-              className="w-full bg-sky-400 hover:bg-sky-500"
-            >
-              Réserver maintenant
-            </Button>
-          </form>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
+          <iframe  
+            ref={iframeRef}  
+            id="nuit-resa_iframe-resa"  
+            onLoad={() => window.scrollTo(0, 0)}  
+            frameBorder="0"  
+            width="100%"  
+            height="1500"  
+            title="Reservation Form"  
+          />  
+        </motion.div>  
+      </div>  
+    </div>  
+  );  
+}  
