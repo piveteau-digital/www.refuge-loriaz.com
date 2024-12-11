@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {Link} from "@/navigation";
+import { Link } from "@/navigation";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -16,14 +16,13 @@ export function Navigation() {
   const isClient = useIsClient();
 
   const navItems = [
-    { name: t('navigation.home'), href: "/"},
-    { name: t('navigation.services'), href: "/services" },
-    { name: t('navigation.about'), href: "/about" },
-    { name: t('navigation.access'), href: "/access" },
-    { name: t('navigation.contact'), href: "/contact" },
-    { name: t('navigation.prices'), href: "/pricing" },
+    { name: t("navigation.home"), href: "/" },
+    { name: t("navigation.services"), href: "/services" },
+    { name: t("navigation.about"), href: "/about" },
+    { name: t("navigation.access"), href: "/access" },
+    { name: t("navigation.contact"), href: "/contact" },
+    { name: t("navigation.prices"), href: "/pricing" },
   ];
-  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,11 +43,8 @@ export function Navigation() {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
-          <Link
-            href="/"
-            className="text-2xl font-bold w-[180px]"
-          >
-            <Image 
+          <Link href="/" className="text-2xl font-bold w-[180px]">
+            <Image
               src="/assets/images/logo.png"
               width={200}
               height={80}
@@ -73,12 +69,10 @@ export function Navigation() {
             <Button
               asChild
               className={`px-4 py-2 rounded-full ${
-                isScrolled
-                  ? "bg-sky-400 text-white"
-                  : "bg-white text-gray-900"
+                isScrolled ? "bg-sky-400 text-white" : "bg-white text-gray-900"
               } hover:opacity-90 transition-all`}
             >
-              <Link href={"/reservation"  as "/booking"}>{t('book')}</Link>
+              <Link href={"/reservation" as "/booking"}>{t("book")}</Link>
             </Button>
           </div>
 
@@ -86,7 +80,7 @@ export function Navigation() {
           <button
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label={t('menu')}
+            aria-label={t("menu")}
           >
             {isOpen ? (
               <X
@@ -128,7 +122,7 @@ export function Navigation() {
                 className="block px-3 py-2 text-white bg-sky-400 rounded-md text-center"
                 onClick={() => setIsOpen(false)}
               >
-                {t('common.book')}
+                {t("common.book")}
               </Link>
             </div>
           </motion.div>

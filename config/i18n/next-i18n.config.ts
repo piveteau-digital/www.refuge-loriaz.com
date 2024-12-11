@@ -17,13 +17,13 @@ const namespaces = [
   "pricing",
   "services",
   "common",
-]
+];
 
 const i18nextConfig = {
   locales,
   localePrefix: LocalePrefix["always"],
   defaultLocale: locales[0],
-  namespaces
+  namespaces,
 };
 
 export default i18nextConfig;

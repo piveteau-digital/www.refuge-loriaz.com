@@ -33,7 +33,7 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
- 
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -74,7 +74,7 @@
   }
 }
 
-
-h2, h3 {
-  color: rgba(140,165,183,1);
+h2,
+h3 {
+  color: rgba(140, 165, 183, 1);
 }

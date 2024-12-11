@@ -5,39 +5,38 @@ import Image from "next/image";
 import { Compass, Mountain, Snowflake, Sun } from "lucide-react";
 import { useTranslations } from "@/config/@next-intl";
 
-
 export function Activities() {
   const t = useTranslations("landing");
 
   const activities = [
     {
-      title: () => t('activities.hiking.title'),
-      description: () => t('activities.hiking.description'),
+      title: () => t("activities.hiking.title"),
+      description: () => t("activities.hiking.description"),
       icon: Compass,
       image: "https://images.unsplash.com/photo-1551632811-561732d1e306",
-      season: () => t('activities.hiking.season')
+      season: () => t("activities.hiking.season"),
     },
     {
-      title: () => t('activities.alpinism.title'),
-      description: () => t('activities.alpinism.description'),
+      title: () => t("activities.alpinism.title"),
+      description: () => t("activities.alpinism.description"),
       icon: Mountain,
       image: "https://images.unsplash.com/photo-1522163182402-834f871fd851",
-      season: () => t('activities.alpinism.season')
+      season: () => t("activities.alpinism.season"),
     },
     {
-      title: () => t('activities.skiing.title'),
-      description: () => t('activities.skiing.description'),
+      title: () => t("activities.skiing.title"),
+      description: () => t("activities.skiing.description"),
       icon: Snowflake,
       image: "https://images.unsplash.com/photo-1551524559-8af4e6624178",
-      season: () => t('activities.skiing.season')
+      season: () => t("activities.skiing.season"),
     },
     {
-      title: () => t('activities.wildlife.title'),
-      description: () => t('activities.wildlife.description'),
+      title: () => t("activities.wildlife.title"),
+      description: () => t("activities.wildlife.description"),
       icon: Sun,
       image: "https://images.unsplash.com/photo-1484920274317-87885fcbc504",
-      season: () => t('activities.wildlife.season')
-    }
+      season: () => t("activities.wildlife.season"),
+    },
   ];
 
   return (
@@ -49,9 +48,9 @@ export function Activities() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">{t('activities.title')}</h2>
+          <h2 className="text-4xl font-bold mb-4">{t("activities.title")}</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            {t('activities.subtitle')}
+            {t("activities.subtitle")}
           </p>
         </motion.div>
 

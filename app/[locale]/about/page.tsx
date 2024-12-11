@@ -10,37 +10,41 @@ const teamMembers = [
     name: "Jean-Pierre Martin",
     role: "Gardien du refuge",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
-    description: "Passionné de montagne depuis 30 ans, Jean-Pierre veille sur le refuge et ses visiteurs avec bienveillance."
+    description:
+      "Passionné de montagne depuis 30 ans, Jean-Pierre veille sur le refuge et ses visiteurs avec bienveillance.",
   },
   {
     name: "Marie Dubois",
     role: "Chef cuisinière",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-    description: "Experte en cuisine traditionnelle savoyarde, Marie régale les visiteurs avec ses plats authentiques."
-  }
+    description:
+      "Experte en cuisine traditionnelle savoyarde, Marie régale les visiteurs avec ses plats authentiques.",
+  },
 ];
 
 const timeline = [
   {
     year: "1925",
     title: "Construction du refuge",
-    description: "Le refuge original fut construit par le Club Alpin Français."
+    description: "Le refuge original fut construit par le Club Alpin Français.",
   },
   {
     year: "1962",
     title: "Première rénovation",
-    description: "Agrandissement et modernisation des installations."
+    description: "Agrandissement et modernisation des installations.",
   },
   {
     year: "1998",
     title: "Rénovation majeure",
-    description: "Installation de panneaux solaires et amélioration du confort."
+    description:
+      "Installation de panneaux solaires et amélioration du confort.",
   },
   {
     year: "2020",
     title: "Nouveau départ",
-    description: "Reprise du refuge par l'équipe actuelle et rénovations intérieures."
-  }
+    description:
+      "Reprise du refuge par l'équipe actuelle et rénovations intérieures.",
+  },
 ];
 
 export default function AboutPage() {
@@ -73,24 +77,19 @@ export default function AboutPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
             {t.raw("attributes").map((attribute: any, idx: number) => (
               <motion.div
-              key={`about-attributes-${idx}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-              transition={{ delay: idx * .3 }}
-            >
-              <Mountain className="w-12 h-12 mx-auto mb-4 text-sky-400" />
-              <h3 className="text-xl font-bold mb-2">
-                {attribute.title}
-              </h3>
-              <p className="text-gray-600">
-              {attribute.message}
-              </p>
-            </motion.div>
+                key={`about-attributes-${idx}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center"
+                transition={{ delay: idx * 0.3 }}
+              >
+                <Mountain className="w-12 h-12 mx-auto mb-4 text-sky-400" />
+                <h3 className="text-xl font-bold mb-2">{attribute.title}</h3>
+                <p className="text-gray-600">{attribute.message}</p>
+              </motion.div>
             ))}
           </div>
         </div>

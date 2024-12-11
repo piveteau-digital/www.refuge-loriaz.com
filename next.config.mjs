@@ -5,7 +5,7 @@ const authorizedDomains = [
   ["https", "d22po4pjz3o32e.cloudfront.net"],
   ["https", "aceternity.com"],
   ["https", "thispersondoesnotexist.com"],
-  ["https", "images.unsplash.com"]
+  ["https", "images.unsplash.com"],
 ];
 
 const images = {
@@ -34,6 +34,5 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
 };
-
 
 export default withNextIntl("./i18n.ts")(nextConfig);

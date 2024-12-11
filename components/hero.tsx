@@ -5,13 +5,13 @@ import { ChevronDown, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { QuickBooking } from "./quick-booking";
 
-export function Hero({hero, common}: IntlMessages) {
+export function Hero({ hero, common }: IntlMessages) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
   const isInView = useInView(videoRef);
-  
+
   const titleY = useTransform(scrollY, [0, 500], [0, 150]);
   const textY = useTransform(scrollY, [0, 500], [0, 150]);
   const buttonY = useTransform(scrollY, [0, 500], [0, 150]);
@@ -20,19 +20,16 @@ export function Hero({hero, common}: IntlMessages) {
 
   useEffect(() => {
     if (isInView && videoRef.current?.paused) {
-      videoRef.current.play()
+      videoRef.current.play();
     }
-    if (!isInView && videoRef.current &&!videoRef.current?.paused) {
-      videoRef.current.pause()
+    if (!isInView && videoRef.current && !videoRef.current?.paused) {
+      videoRef.current.pause();
     }
-  }, [isInView])
+  }, [isInView]);
 
   return (
     <div ref={ref} className="relative h-screen overflow-hidden">
-      <motion.div
-        style={{ y: videoY }}
-        className="absolute inset-0 h-[120%]"
-      >
+      <motion.div style={{ y: videoY }} className="absolute inset-0 h-[120%]">
         <video
           ref={videoRef}
           playsInline
@@ -95,9 +92,12 @@ export function Hero({hero, common}: IntlMessages) {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="w-full"
-                style={{y: bookY}}
+                style={{ y: bookY }}
               >
-                <QuickBooking small className="max-w-sm flex flex-col justify-center items-center overflow-hidden" />
+                <QuickBooking
+                  small
+                  className="max-w-sm flex flex-col justify-center items-center overflow-hidden"
+                />
               </motion.div>
             </div>
           </div>

@@ -14,27 +14,41 @@ export function Weather() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl font-bold text-center mb-12">{t('weather.title')}</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            {t("weather.title")}
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <Thermometer className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{t('weather.temperature.title')}</h3>
-              <p className="text-4xl font-bold">{t('weather.temperature.value')}</p>
+              <h3 className="text-xl font-semibold mb-2">
+                {t("weather.temperature.title")}
+              </h3>
+              <p className="text-4xl font-bold">
+                {t("weather.temperature.value")}
+              </p>
             </div>
             <div className="text-center">
               <Cloud className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{t('weather.conditions.title')}</h3>
-              <p className="text-4xl font-bold">{t('weather.conditions.value')}</p>
+              <h3 className="text-xl font-semibold mb-2">
+                {t("weather.conditions.title")}
+              </h3>
+              <p className="text-4xl font-bold">
+                {t("weather.conditions.value")}
+              </p>
             </div>
             <div className="text-center">
               <Wind className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{t('weather.wind.title')}</h3>
-              <p className="text-4xl font-bold">{t('weather.wind.value')}</p>
+              <h3 className="text-xl font-semibold mb-2">
+                {t("weather.wind.title")}
+              </h3>
+              <p className="text-4xl font-bold">{t("weather.wind.value")}</p>
             </div>
             <div className="text-center">
               <Sun className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{t('weather.uv.title')}</h3>
-              <p className="text-4xl font-bold">{t('weather.uv.value')}</p>
+              <h3 className="text-xl font-semibold mb-2">
+                {t("weather.uv.title")}
+              </h3>
+              <p className="text-4xl font-bold">{t("weather.uv.value")}</p>
             </div>
           </div>
         </motion.div>

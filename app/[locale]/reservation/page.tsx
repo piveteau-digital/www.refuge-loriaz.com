@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
-import { fr } from 'date-fns/locale';
+import { fr } from "date-fns/locale";
 
 export default function ReservationPage() {
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -18,7 +18,7 @@ export default function ReservationPage() {
     phone: "",
     guests: "2",
     roomType: "dortoir",
-    mealPlan: "demi-pension"
+    mealPlan: "demi-pension",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -29,11 +29,13 @@ export default function ReservationPage() {
     window.location.href = "/reservation/confirmation";
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -53,8 +55,10 @@ export default function ReservationPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Personal Information */}
               <div className="space-y-4">
-                <h2 className="text-xl font-semibold mb-4">Informations personnelles</h2>
-                
+                <h2 className="text-xl font-semibold mb-4">
+                  Informations personnelles
+                </h2>
+
                 <div className="space-y-2">
                   <Label htmlFor="firstName">Prénom</Label>
                   <Input
@@ -104,7 +108,9 @@ export default function ReservationPage() {
 
               {/* Booking Details */}
               <div className="space-y-4">
-                <h2 className="text-xl font-semibold mb-4">Détails du séjour</h2>
+                <h2 className="text-xl font-semibold mb-4">
+                  Détails du séjour
+                </h2>
 
                 <div className="space-y-2">
                   <Label>{"Date d'arrivée"}</Label>
@@ -127,7 +133,7 @@ export default function ReservationPage() {
                     className="w-full rounded-md border border-gray-300 p-2"
                     required
                   >
-                    {[1, 2, 3, 4, 5, 6].map(num => (
+                    {[1, 2, 3, 4, 5, 6].map((num) => (
                       <option key={num} value={num}>
                         {num} {num === 1 ? "personne" : "personnes"}
                       </option>
@@ -167,7 +173,10 @@ export default function ReservationPage() {
               </div>
             </div>
 
-            <Button type="submit" className="w-full bg-sky-400 hover:bg-sky-500">
+            <Button
+              type="submit"
+              className="w-full bg-sky-400 hover:bg-sky-500"
+            >
               Réserver maintenant
             </Button>
           </form>

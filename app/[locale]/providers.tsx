@@ -5,7 +5,7 @@ import getDefaultMessages from "@/messages";
 import { Toaster } from "sonner";
 import { defaultLocale } from "@/navigation";
 import { ErrorBoundary } from "@/components/utils/ErrorBoundaries";
-import { ThemeProvider } from '@/components/theme-provider';
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const Providers = ({
   children,
@@ -37,9 +37,9 @@ export const Providers = ({
           enableSystem
           disableTransitionOnChange
         >
-            {children}
+          {children}
         </ThemeProvider>
-            <Toaster />
+        <Toaster />
       </NextIntlClientProvider>
     </ErrorBoundary>
   );

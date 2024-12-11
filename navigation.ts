@@ -37,14 +37,11 @@ export const pathnames = {
     fr: "/reservation",
   },
 
-
-
   "/blog": "/blog",
 
   "/legal/terms": "/legal/terms",
   "/legal/cgv": "/legal/cgv",
   "/legal/privacy": "/legal/privacy",
-
 
   "/api/[...params]": "/api/[...params]",
 };
