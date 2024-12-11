@@ -2,7 +2,7 @@
 
 import locales from "./config/i18n/locales.mjs";
 
-const DEFAULT_PROD_URL = "https://www.social-saver.com";
+const DEFAULT_PROD_URL = "https://www.refuge-loriaz.com";
 
 const nextSiteMapConfig = {
   robotsTxtOptions: {
