@@ -8,10 +8,19 @@ import { getTranslations } from '@/config/@next-intl/server';
 
 export default async function Home() {
   const t = await getTranslations("landing");
-  const tCommon = await getTranslations("common");
+  const tCommmon = await getTranslations("common");
+
+  const heroData = {
+    hero: t.raw("hero"),
+    common: {
+      book: tCommmon.raw("book")
+    },
+
+  }
+
   return (
     <>
-      <Hero />
+      <Hero {...heroData} />
       <QuickBooking />
       <Features />
       <Activities />

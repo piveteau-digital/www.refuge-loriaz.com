@@ -4,10 +4,8 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { QuickBooking } from "./quick-booking";
-import { t } from "@/lib/i18n";
-import { useTranslations } from "@/config/@next-intl";
 
-export function Hero() {
+export function Hero({hero, common}: IntlMessages) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -19,8 +17,6 @@ export function Hero() {
   const buttonY = useTransform(scrollY, [0, 500], [0, 150]);
   const videoY = useTransform(scrollY, [0, 1000], [0, -200]);
   const bookY = useTransform(scrollY, [0, 500], [0, -200]);
-
-  const t2 = useTranslations("home")
 
   useEffect(() => {
     if (isInView && videoRef.current?.paused) {
@@ -56,7 +52,7 @@ export function Hero() {
               <button
                 onClick={() => setIsMuted(!isMuted)}
                 className="fixed top-2 left-1/2 z-50 p-4 rounded-full bg-white/50 hover:bg-black/70 transition-colors border border-white/20 backdrop-blur-sm"
-                aria-label={isMuted ? t('hero.unmute') : t('hero.mute')}
+                aria-label={isMuted ? hero.unmute : hero.mute}
               >
                 {isMuted ? (
                   <VolumeX className="w-6 h-6 text-[#555]" />
@@ -71,7 +67,7 @@ export function Hero() {
                 transition={{ duration: 0.8 }}
                 className="text-5xl lg:text-7xl font-bold mb-6"
               >
-                {t('home.hero.title')}
+                {hero.title}
               </motion.h1>
               <motion.p
                 style={{ y: textY }}
@@ -80,7 +76,7 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-xl lg:text-2xl mb-8 max-w-2xl lg:max-w-none"
               >
-                {t('home.hero.subtitle')}
+                {hero.subtitle}
               </motion.p>
               <motion.button
                 style={{ y: buttonY }}
@@ -89,7 +85,7 @@ export function Hero() {
                 transition={{ duration: 0.3, delay: 0 }}
                 className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all lg:self-start"
               >
-                {t('common.book')}
+                {common.book}
               </motion.button>
             </div>
 

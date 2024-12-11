@@ -12,11 +12,11 @@ const namespaces = [
   "about",
   "access",
   "booking",
-  "common",
   "contact",
   "landing",
   "pricing",
   "services",
+  "common",
 ]
 
 const i18nextConfig = {
