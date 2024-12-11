@@ -107,7 +107,7 @@ export default function ReservationPage() {
                 <h2 className="text-xl font-semibold mb-4">Détails du séjour</h2>
 
                 <div className="space-y-2">
-                  <Label>Date d'arrivée</Label>
+                  <Label>{"Date d'arrivée"}</Label>
                   <Calendar
                     mode="single"
                     selected={date}
@@ -136,7 +136,7 @@ export default function ReservationPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="roomType">Type d'hébergement</Label>
+                  <Label htmlFor="roomType">{"Type d'hébergement"}</Label>
                   <select
                     id="roomType"
                     name="roomType"
