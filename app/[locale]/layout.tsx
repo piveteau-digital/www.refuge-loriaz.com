@@ -61,7 +61,7 @@ export default function RootLayout({
   params: { locale: "fr" | "en" };
 }) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={inter.className}>
         <Providers locale={locale}>
           <Navigation />
