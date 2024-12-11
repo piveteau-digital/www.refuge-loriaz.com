@@ -1,63 +1,62 @@
-const about = {
-    title: "Notre Histoire",
-    message: "Un refuge authentique au cœur des Alpes depuis 1925",
-    attributes: {
-        authenticity: {
-            title: "Authenticity",
-            message: "Un véritable refuge de montagne préservant son caractère traditionnel"
-        },
-        passion: {
-            title: "Passion",
-            message: "Une équipe passionnée au service de votre expérience en montagne"
-        },
-        convivial: {
-            title: "Convivialité",
-            message: "Un lieu de rencontre et de partage pour tous les amoureux de la montagne"
-        }
-    },
-    timeline: {
-        title: "Notre Histoire",
-        items: [
-            {
-                year: "1925",
-                title: "Construction du refuge",
-                description: "Le refuge original fut construit par le Club Alpin Français."
-              },
-              {
-                year: "1962",
-                title: "Première rénovation",
-                description: "Agrandissement et modernisation des installations."
-              },
-              {
-                year: "1998",
-                title: "Rénovation majeure",
-                description: "Installation de panneaux solaires et amélioration du confort."
-              },
-              {
-                year: "2020",
-                title: "Nouveau départ",
-                description: "Reprise du refuge par l'équipe actuelle et rénovations intérieures."
-              }
-        ]
-    },
-    team: {
-        title: "Notre Équipe",
-        items: [
-            {
-              name: "Jean-Pierre Martin",
-              role: "Gardien du refuge",
-              image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
-              description: "Passionné de montagne depuis 30 ans, Jean-Pierre veille sur le refuge et ses visiteurs avec bienveillance."
-            },
-            {
-              name: "Marie Dubois",
-              role: "Chef cuisinière",
-              image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-              description: "Experte en cuisine traditionnelle savoyarde, Marie régale les visiteurs avec ses plats authentiques."
-            }
-          ]
-    }
+const about = {  
+    title: "Our Story",  
+    message: "An authentic refuge in the heart of the Alps since 1925",  
+    attributes: {  
+        authenticity: {  
+            title: "Authenticity",  
+            message: "A genuine mountain refuge preserving its traditional character"  
+        },  
+        passion: {  
+            title: "Passion",  
+            message: "A passionate team dedicated to your mountain experience"  
+        },  
+        convivial: {  
+            title: "Conviviality",  
+            message: "A meeting place and sharing space for all mountain enthusiasts"  
+        }  
+    },  
+    timeline: {  
+        title: "Our History",  
+        items: [  
+            {  
+                year: "1925",  
+                title: "Refuge Construction",  
+                description: "The original refuge was built by the French Alpine Club."  
+            },  
+            {  
+                year: "1962",  
+                title: "First Renovation",  
+                description: "Expansion and modernization of facilities."  
+            },  
+            {  
+                year: "1998",  
+                title: "Major Renovation",  
+                description: "Installation of solar panels and comfort improvements."  
+            },  
+            {  
+                year: "2020",  
+                title: "New Beginning",  
+                description: "Takeover by the current team and interior renovations."  
+            }  
+        ]  
+    },  
+    team: {  
+        title: "Our Team",  
+        items: [  
+            {  
+                name: "Jean-Pierre Martin",  
+                role: "Refuge Guardian",  
+                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",  
+                description: "A mountain enthusiast for 30 years, Jean-Pierre watches over the refuge and its visitors with care."  
+            },  
+            {  
+                name: "Marie Dubois",  
+                role: "Head Chef",  
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",  
+                description: "An expert in traditional Savoyard cuisine, Marie delights visitors with her authentic dishes."  
+            }  
+        ]  
+    }  
+}  
 
-}
-
-export default about;
+export default about;  
