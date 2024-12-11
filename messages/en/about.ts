@@ -1,20 +1,20 @@
 const about = {  
     title: "Our Story",  
     message: "An authentic refuge in the heart of the Alps since 1925",  
-    attributes: {  
-        authenticity: {  
+    attributes: [  
+        {  
             title: "Authenticity",  
             message: "A genuine mountain refuge preserving its traditional character"  
         },  
-        passion: {  
+        {  
             title: "Passion",  
             message: "A passionate team dedicated to your mountain experience"  
         },  
-        convivial: {  
+        {  
             title: "Conviviality",  
             message: "A meeting place and sharing space for all mountain enthusiasts"  
         }  
-    },  
+    ],  
     timeline: {  
         title: "Our History",  
         items: [  

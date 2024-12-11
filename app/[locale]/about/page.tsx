@@ -74,50 +74,24 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            <motion.div
+            {t.raw("attributes").map((attribute: any, idx: number) => (
+              <motion.div
+              key={`about-attributes-${idx}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center"
+              transition={{ delay: idx * .3 }}
             >
               <Mountain className="w-12 h-12 mx-auto mb-4 text-sky-400" />
               <h3 className="text-xl font-bold mb-2">
-                {t("attributes.authenticity.title")}
+                {attribute.title}
               </h3>
               <p className="text-gray-600">
-              {t("attributes.authenticity.message")}
+              {attribute.message}
               </p>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <Heart className="w-12 h-12 mx-auto mb-4 text-sky-400" />
-              <h3 className="text-xl font-bold mb-2">
-                {t("attributes.passion.title")}
-              </h3>
-              <p className="text-gray-600">
-              {t("attributes.passion.message")}
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="text-center"
-            >
-              <Users className="w-12 h-12 mx-auto mb-4 text-sky-400" />
-              <h3 className="text-xl font-bold mb-2">
-                {t("attributes.convivial.title")}
-              </h3>
-              <p className="text-gray-600">
-              {t("attributes.convivial.message")}
-              </p>
-            </motion.div>
+            ))}
           </div>
         </div>
       </section>
