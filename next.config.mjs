@@ -20,14 +20,14 @@ const images = {
 };
 
 const nextConfig = {
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: "/:path/sitemap.xml",
-  //       destination: "/api/:path/sitemap-xml",
-  //     },
-  //   ];
-  // },
+  async rewrites() {
+    return [
+      {
+        source: "/:path/sitemap.xml",
+        destination: "/api/:path/sitemap-xml",
+      },
+    ];
+  },
   images,
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
