@@ -96,7 +96,7 @@ export default function AccessPage() {
           <div className="max-w-4xl mx-auto">
             <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2775.931741243안전을위해실제주소제거!1m3!1e1!3m2!1s0x0%3A0x0!2zNDXCsDU5JzI0LjAiTiA2wrAwNSc0OC4wIkU!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyASzqnCrYBWXhFtdlXXBg_KCLxQTa1I5Y4&q=46.03906951%2C6.91325202794&center=46.0236893114%2C6.90089509101&zoom=14&maptype=satellite"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
@@ -123,11 +123,11 @@ export default function AccessPage() {
               <div>
                 <h3 className="text-xl font-bold mb-2">Informations importantes</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Prévoir de bonnes chaussures de marche</li>
-                  <li>• Vérifier la météo avant de partir</li>
-                  <li>• Emporter de l'eau et des en-cas</li>
-                  <li>• Le refuge n'est pas accessible en voiture</li>
-                  <li>• En hiver, équipement adapté obligatoire</li>
+                  <li>{"• Prévoir de bonnes chaussures de marche"}</li>
+                  <li>{"• Vérifier la météo avant de partir"}</li>
+                  <li>{"• Emporter de l'eau et des en-cas"}</li>
+                  <li>{"• Le refuge n'est pas accessible en voiture"}</li>
+                  <li>{"• En hiver, équipement adapté obligatoire"}</li>
                 </ul>
               </div>
             </motion.div>

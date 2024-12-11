@@ -2,10 +2,10 @@
 
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, Volume2, VolumeX } from "lucide-react";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { QuickBooking } from "./quick-booking";
 import { t } from "@/lib/i18n";
+import { useTranslations } from "@/config/@next-intl";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -19,6 +19,8 @@ export function Hero() {
   const buttonY = useTransform(scrollY, [0, 500], [0, 150]);
   const videoY = useTransform(scrollY, [0, 1000], [0, -200]);
   const bookY = useTransform(scrollY, [0, 500], [0, -200]);
+
+  const t2 = useTranslations("home")
 
   useEffect(() => {
     if (isInView && videoRef.current?.paused) {

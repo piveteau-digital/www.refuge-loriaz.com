@@ -1,6 +1,96 @@
-import type { Config } from 'tailwindcss';
+/** @type {import('tailwindcss').Config} */
 
-const config: Config = {
+import { screens } from "./rules/screens";
+// import { colors } from "./rules/colors";
+import { fontFamily } from "./rules/fontFamily";
+import { animation, keyframes } from "./rules/animation";
+import { plugins } from "./plugins";
+
+const bgLogoSizes = {
+  default: "24px",
+  light: "24px",
+};
+const bgLogoColors = {
+  default: "hsl(var(--foreground))",
+  light: "hsl(var(--background))",
+};
+const bgLogoUrls = {
+  default: "url('/images/logo-light.svg')",
+  light: "url('/images/logo.svg')",
+};
+
+const twConfig = {
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
+  theme: {
+    height: {
+      header: "var(--header-height)",
+    },
+    container: {
+      center: true,
+      padding: "1rem",
+    },
+    extend: {
+      screens,
+      // colors,
+      fontFamily,
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      backgroundColor: {
+        logo: bgLogoColors.default,
+        "logo-light": bgLogoColors.default,
+
+        "background-logo": bgLogoColors.light,
+        "foreground-logo": bgLogoColors.default,
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+
+        logo: bgLogoUrls.default,
+        "logo-light": bgLogoUrls.default,
+
+        "background-logo": bgLogoUrls.light,
+        "foreground-logo": bgLogoUrls.default,
+      },
+      backgroundSize: {
+        logo: bgLogoSizes.default,
+        "logo-light": bgLogoSizes.default,
+        "foreground-logo": bgLogoSizes.default,
+        "background-logo": bgLogoSizes.default,
+      },
+      minHeight: {
+        "safe-screen": "calc(100dvh - var(--header-height))",
+      },
+      height: {
+        "safe-screen": "calc(100dvh - var(--header-height))",
+      },
+      margin: {
+        header: "var(--header-height)",
+      },
+      padding: {
+        header: "var(--header-height)",
+      },
+
+      keyframes,
+      animation,
+    },
+  },
+  presets: [require("../../tailwind.config")],
+  plugins,
+};
+
+const config = {
+	...twConfig,
   darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -95,6 +185,8 @@ const config: Config = {
   	}
   },
   plugins: [require('tailwindcss-animate')],
+  presets: [require("../../tailwind.config")]
 };
+
 
 export default config;

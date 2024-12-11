@@ -54,11 +54,11 @@ export default function ContactPage() {
                 <div className="flex items-start">
                   <Clock className="w-6 h-6 text-sky-400 mr-4 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-1">Horaires d'ouverture</h3>
+                    <h3 className="font-semibold mb-1">{"Horaires d'ouverture"}</h3>
                     <p className="text-gray-600">
-                      Été : Juin à Septembre<br />
-                      Hiver : Décembre à Avril<br />
-                      Ouvert tous les jours en saison
+                      {"Été : Juin à Septembre"}<br />
+                      {"Hiver : Décembre à Avril"}<br />
+                      {"Ouvert tous les jours en saison"}
                     </p>
                   </div>
                 </div>
