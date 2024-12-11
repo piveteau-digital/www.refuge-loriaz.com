@@ -5,6 +5,7 @@ import { Info } from "lucide-react";
 import Link from "next/link";  
 import { Button } from "@/components/ui/button";  
 import { useTranslations } from 'next-intl';  
+import Image from "next/image";
 
 export default function PricesPage() {  
   const t = useTranslations('pricing');  
@@ -37,7 +38,27 @@ export default function PricesPage() {
   );  
 
   return (  
-    <div className="min-h-screen bg-gray-50 pt-20">  
+    <div className="min-h-screen bg-gray-50">  
+    <div className="relative h-[50vh] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
+          alt="Vue du Refuge de Loriaz"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              {t("title")}
+            </h1>
+            <p className="text-lg md:text-xl max-w-2xl mx-auto px-4">
+              {t("message")}
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 py-8">  
         <motion.div  
           initial={{ opacity: 0, y: 20 }}  
