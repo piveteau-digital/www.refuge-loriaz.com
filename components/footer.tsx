@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { t } from "@/lib/i18n";
+import * as appInfos from "@/package.json";
 
 export function Footer() {
   return (
@@ -115,6 +116,9 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
           <p>
+            <small className="mr-2">
+            {`v${appInfos.version}`}
+            </small>
             {t("footer.copyright").replace(
               "{year}",
               new Date().getFullYear().toString(),
