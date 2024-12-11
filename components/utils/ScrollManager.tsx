@@ -1,60 +1,63 @@
-// components/ScrollManager.tsx  
-'use client';  
+// components/ScrollManager.tsx
+"use client";
 
-import { useEffect, useCallback } from 'react';  
-import { usePathname, useSearchParams } from 'next/navigation';  
+import { useEffect, useCallback } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 
-interface ScrollManagerProps {  
-  // Time to wait before scrolling to anchor (useful for dynamic content)  
+interface ScrollManagerProps {
+  // Time to wait before scrolling to anchor (useful for dynamic content)
   delay?: number;
-  // Offset from the top of the element (useful for fixed headers)  
+  // Offset from the top of the element (useful for fixed headers)
   offset?: number;
-}  
+}
 
-export default function ScrollManager({  
+export default function ScrollManager({
   delay = 0,
   offset = 0,
-}: ScrollManagerProps = {}) {  
-  const pathname = usePathname();  
-  const searchParams = useSearchParams();  
+}: ScrollManagerProps = {}) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const handleScroll = useCallback((hash: string | null) => {  
-    if (!hash) {  
-      window.scrollTo({  
-        top: 0,
-        behavior: "smooth",  
-      });  
-      return;  
-    }  
-
-    setTimeout(() => {  
-      const element = document.querySelector(hash);  
-      if (element) {  
-        const elementPosition = element.getBoundingClientRect().top;  
-        const offsetPosition = elementPosition + window.pageYOffset - offset;  
-
-        window.scrollTo({  
-          top: offsetPosition,  
+  const handleScroll = useCallback(
+    (hash: string | null) => {
+      if (!hash) {
+        window.scrollTo({
+          top: 0,
           behavior: "smooth",
         });
-      }  
-    }, delay);  
-  }, [delay, offset]);  
+        return;
+      }
 
-  // Handle initial load and pathname changes  
-  useEffect(() => {  
-    handleScroll(window.location.hash);  
-  }, [pathname, searchParams, handleScroll]);  
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-  // Handle hash changes without pathname changes  
-  useEffect(() => {  
-    const handleHashChange = () => {  
-      handleScroll(window.location.hash);  
-    };  
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, delay);
+    },
+    [delay, offset],
+  );
 
-    window.addEventListener('hashchange', handleHashChange);  
-    return () => window.removeEventListener('hashchange', handleHashChange);  
-  }, [handleScroll]);  
+  // Handle initial load and pathname changes
+  useEffect(() => {
+    handleScroll(window.location.hash);
+  }, [pathname, searchParams, handleScroll]);
 
-  return null;  
-}  
+  // Handle hash changes without pathname changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      handleScroll(window.location.hash);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, [handleScroll]);
+
+  return null;
+}

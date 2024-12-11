@@ -116,9 +116,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
           <p>
-            <small className="mr-2">
-            {`v${appInfos.version}`}
-            </small>
+            <small className="mr-2">{`v${appInfos.version}`}</small>
             {t("footer.copyright").replace(
               "{year}",
               new Date().getFullYear().toString(),

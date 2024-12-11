@@ -77,18 +77,18 @@ export function QuickBooking({
                     ))}
                   </select>
                 </div>
-                <Button
-                className="w-full bg-sky-400 hover:bg-sky-700 text-white">
-              
-                <Link href={{
-                  pathname: "/booking",
-                  query: {
-                    date: date?.toISOString()?.split("T")?.[0],
-                    guests,
-                  }
-                }} >
-                  {tLanding("quickBooking.check")}
-                </Link>
+                <Button className="w-full bg-sky-400 hover:bg-sky-700 text-white">
+                  <Link
+                    href={{
+                      pathname: "/booking",
+                      query: {
+                        date: date?.toISOString()?.split("T")?.[0],
+                        guests,
+                      },
+                    }}
+                  >
+                    {tLanding("quickBooking.check")}
+                  </Link>
                 </Button>
               </div>
             </div>
