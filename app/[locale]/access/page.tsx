@@ -2,42 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Car, Train, Mountain, Info } from "lucide-react";
+import { useTranslations } from "@/config/@next-intl";
 import Image from "next/image";
 
-const accessMethods = [
-  {
-    icon: Car,
-    title: "En voiture",
-    description: "Depuis Chamonix, prenez la D1506 direction Vallorcine. Parking au Col des Montets.",
-    details: [
-      "Parking gratuit au Col des Montets",
-      "45 minutes depuis Chamonix",
-      "1h30 depuis Genève"
-    ]
-  },
-  {
-    icon: Train,
-    title: "En train",
-    description: "Gare SNCF de Vallorcine, puis navette ou taxi jusqu'au départ du sentier.",
-    details: [
-      "TER depuis Chamonix ou Martigny",
-      "Service de navette en saison",
-      "Taxis disponibles sur réservation"
-    ]
-  },
-  {
-    icon: Mountain,
-    title: "À pied",
-    description: "2h de marche depuis le Col des Montets par un sentier balisé.",
-    details: [
-      "Dénivelé : 700m",
-      "Difficulté : moyenne",
-      "Balisage : jaune"
-    ]
-  }
-];
-
 export default function AccessPage() {
+  const t = useTranslations("access");
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -51,9 +21,11 @@ export default function AccessPage() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Comment venir ?</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              {t("title")}
+            </h1>
             <p className="text-lg md:text-xl max-w-2xl mx-auto px-4">
-              Toutes les informations pour accéder au Refuge de Loriaz
+              {t("message")}
             </p>
           </div>
         </div>
@@ -63,7 +35,7 @@ export default function AccessPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {accessMethods.map((method, index) => (
+            {t.raw("ways").map((method: any, index:  number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -76,7 +48,7 @@ export default function AccessPage() {
                 <h3 className="text-xl font-bold mb-2">{method.title}</h3>
                 <p className="text-gray-600 mb-4">{method.description}</p>
                 <ul className="space-y-2">
-                  {method.details.map((detail, idx) => (
+                  {method.details.map((detail: any, idx: number) => (
                     <li key={idx} className="flex items-center text-gray-700">
                       <span className="w-2 h-2 bg-sky-400 rounded-full mr-2" />
                       {detail}
@@ -121,13 +93,13 @@ export default function AccessPage() {
             >
               <Info className="w-6 h-6 text-sky-400 mr-4 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="text-xl font-bold mb-2">Informations importantes</h3>
+                <h3 className="text-xl font-bold mb-2">
+                  {t("notice.title")}
+                </h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>{"• Prévoir de bonnes chaussures de marche"}</li>
-                  <li>{"• Vérifier la météo avant de partir"}</li>
-                  <li>{"• Emporter de l'eau et des en-cas"}</li>
-                  <li>{"• Le refuge n'est pas accessible en voiture"}</li>
-                  <li>{"• En hiver, équipement adapté obligatoire"}</li>
+                  {t.raw("notice.points").map((message: string, idx: number) => (
+                    <li key={`access.notice.points-${idx}`}>{`• ${message}`}</li>
+                  ))}
                 </ul>
               </div>
             </motion.div>
