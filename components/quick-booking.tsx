@@ -5,8 +5,8 @@ import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { t } from "@/lib/i18n";
 import { fr } from 'date-fns/locale';
+import { useTranslations } from "next-intl";
 
 interface QuickBookingProps {
   className?: string;
@@ -16,6 +16,7 @@ interface QuickBookingProps {
 export function QuickBooking({ className = "", small = false }: QuickBookingProps) {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [guests, setGuests] = useState(2);
+  const tLanding = useTranslations("landing")
 
   return (
     <div className={className}>
@@ -33,14 +34,14 @@ export function QuickBooking({ className = "", small = false }: QuickBookingProp
             className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8"
           >
             <h2 className="text-3xl font-bold text-center mb-8">
-              {t('home.quickBooking.title')}
+              {tLanding('quickBooking.title')}
             </h2>
             <div className={cn("grid grid-cols-1 gap-8", {
               "md:grid-cols-2": !small
             })}>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t('home.quickBooking.dates')}
+                  {tLanding('quickBooking.dates')}
                 </label>
                 <Calendar
                   mode="single"
@@ -53,7 +54,7 @@ export function QuickBooking({ className = "", small = false }: QuickBookingProp
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t('home.quickBooking.guests')}
+                    {tLanding('quickBooking.guests')}
                   </label>
                   <select
                     value={guests}
@@ -62,13 +63,13 @@ export function QuickBooking({ className = "", small = false }: QuickBookingProp
                   >
                     {[1, 2, 3, 4, 5, 6].map((num) => (
                       <option key={num} value={num}>
-                        {num} {num === 1 ? t('home.quickBooking.guest') : t('home.quickBooking.guests')}
+                        {num} {num === 1 ? tLanding('quickBooking.guest') : tLanding('quickBooking.guests')}
                       </option>
                     ))}
                   </select>
                 </div>
                 <Button className="w-full bg-sky-400 hover:bg-sky-700 text-white">
-                  {t('home.quickBooking.check')}
+                  {tLanding('quickBooking.check')}
                 </Button>
               </div>
             </div>

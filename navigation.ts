@@ -9,19 +9,42 @@ export const { locales, defaultLocale } = i18nextConfig;
 
 export const pathnames = {
   "/": "/",
-  "/faq": "/faq",
+
+  "/about": {
+    fr: "/a-propos",
+    en: "/about",
+  },
+
+  "/services": {
+    en: "/services",
+    fr: "/services",
+  },
+
+  "/access": {
+    en: "/access",
+    fr: "/acces",
+  },
+  "/contact": {
+    en: "/contact",
+    fr: "/contact",
+  },
+  "/pricing": {
+    en: "/pricing",
+    fr: "/tarifs",
+  },
+  "/booking": {
+    en: "/booking",
+    fr: "/reservation",
+  },
+
+
 
   "/blog": "/blog",
-  "/search": "/search",
 
   "/legal/terms": "/legal/terms",
   "/legal/cgv": "/legal/cgv",
   "/legal/privacy": "/legal/privacy",
 
-  "/offers": {
-    en: "/offers",
-    fr: "/offres",
-  },
 
   "/api/[...params]": "/api/[...params]",
 };

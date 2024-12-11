@@ -15,7 +15,6 @@ export default async function Home() {
     common: {
       book: tCommmon.raw("book")
     },
-
   }
 
   return (

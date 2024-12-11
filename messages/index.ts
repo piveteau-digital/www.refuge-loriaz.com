@@ -4,7 +4,7 @@ export default function getDefaultMessages(locale: "fr" | "en") {
   return nextI18nConfig.namespaces.reduce(
     (acc: { [key: string]: unknown }, ns: string) => ({
       ...acc,
-      [ns]: require(`./${locale}/${ns}`),
+      [ns]: require(`./${locale}/${ns}`).default,
     }),
     {},
   );

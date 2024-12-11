@@ -18,14 +18,12 @@ export function Navigation() {
   const navItems = [
     { name: t('navigation.home'), href: "/"},
     { name: t('navigation.services'), href: "/services" },
-    { name: t('navigation.about'), href: "/a-propos" },
-    { name: t('navigation.access'), href: "/acces" },
+    { name: t('navigation.about'), href: "/about" },
+    { name: t('navigation.access'), href: "/access" },
     { name: t('navigation.contact'), href: "/contact" },
-    { name: t('navigation.prices'), href: "/tarifs" },
+    { name: t('navigation.prices'), href: "/pricing" },
   ];
   
-
-  console.log("-->", t("menu"), t("navigation"), t(""), t("access"), t("navigation.access"))
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,7 +62,7 @@ export function Navigation() {
             {navItems.map((item) => (
               <Link
                 key={item.name}
-                href={item.href as any}
+                href={item.href as "/"}
                 className={`${
                   isScrolled ? "text-gray-900" : "text-white"
                 } hover:opacity-75 transition-opacity`}
@@ -80,7 +78,7 @@ export function Navigation() {
                   : "bg-white text-gray-900"
               } hover:opacity-90 transition-all`}
             >
-              <Link href={"/reservation" as any}>{t('book')}</Link>
+              <Link href={"/reservation"  as "/booking"}>{t('book')}</Link>
             </Button>
           </div>
 
@@ -126,7 +124,7 @@ export function Navigation() {
                 </Link>
               ))}
               <Link
-                href={"/reservation" as any}
+                href={"/booking" as "/booking"}
                 className="block px-3 py-2 text-white bg-sky-400 rounded-md text-center"
                 onClick={() => setIsOpen(false)}
               >
