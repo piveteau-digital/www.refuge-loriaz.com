@@ -165,7 +165,7 @@ export default function ReservationPage({ params: { locale } }: any) {
             onLoad={() => handleIframeParams()}
             frameBorder="0"
             width="100%"
-            height={typeof window !== "undefined" && window.innerWidth >= 1024 ? "1400": "2000"}
+            height={typeof window !== "undefined" && window.innerWidth >= 1024 ? "1400": "2200"}
             title="Reservation Form"
           />
         </motion.div>
