@@ -13,7 +13,7 @@ export default function AccessPage() {
       {/* Hero Section */}
       <div className="relative h-[40vh] overflow-hidden">
       <Image
-          src={"/assets/images/heading-section.jpeg"}
+          src={"/assets/images/heading-section-access.jpg"}
           // src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
           alt="Vue du Refuge de Loriaz"
           fill
