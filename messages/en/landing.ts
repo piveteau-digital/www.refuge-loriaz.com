@@ -3,32 +3,64 @@ const landing = {
     title: "Refuge de Loriaz",
     subtitle: "Experience the mountains at 2020m altitude",
   },
-  features: {
-    title: "Why Choose Refuge de Loriaz",
-    subtitle: "Discover the perfect blend of mountain adventure and comfort",
-    location: {
-      title: "Prime Location",
-      description: "Located at 2020m with breathtaking Alpine views",
+  hikes: {
+    title: "Hikes from the refuge",
+    subtitle: "Perfect starting point to explore the region",
+    dayHikes: {
+      title: "Day hikes",
+      items: [
+        {
+          title: "Col de la Terrasse",
+          description: "2-hour hike from the refuge",
+          difficulty: "Moderate",
+        },
+        {
+          title: "Pointe de la Terrasse",
+          description: "2-hour hike from the refuge",
+          difficulty: "Moderate",
+        },
+        {
+          title: "Cheval Blanc",
+          description: "5-hour hike from the refuge via Col de la Terrasse",
+          difficulty: "Difficult",
+        },
+        {
+          title: "Vieil Emosson Lake",
+          description: "Panoramic hike to the lake",
+          difficulty: "Moderate",
+        },
+        {
+          title: "Dinosaur tracks",
+          description: "2.5 hours from the refuge, near Col de la Terrasse",
+          difficulty: "Moderate",
+        },
+        {
+          title: "Le Buet (3096m)",
+          description: "Highest peak of the Aiguilles Rouges",
+          difficulty: "Difficult",
+        },
+      ],
     },
-    restaurant: {
-      title: "Mountain Restaurant",
-      description: "Traditional Alpine cuisine with local products",
-    },
-    amenities: {
-      title: "Modern Amenities",
-      description: "High-speed WiFi and comfortable facilities",
-    },
-    atmosphere: {
-      title: "Cozy Atmosphere",
-      description: "Authentic mountain refuge experience",
-    },
-    winter: {
-      title: "Winter Sports",
-      description: "Direct access to slopes and winter activities",
-    },
-    hiking: {
-      title: "Hiking Trails",
-      description: "Connected to major Alpine routes",
+    multiDayHikes: {
+      title: "Multi-day tours",
+      items: [
+        {
+          title: "Tour du Mont-Blanc",
+          description: "Stage of the famous TMB circuit",
+        },
+        {
+          title: "Aiguilles Rouges Tour",
+          description: "Circuit through the Aiguilles Rouges massif",
+        },
+        {
+          title: "Mont Ruan Tour",
+          description: "Multi-day hike around Mont Ruan",
+        },
+        {
+          title: "Trient Valley Tour",
+          description: "Discovery circuit of the Trient Valley",
+        },
+      ],
     },
   },
   activities: {

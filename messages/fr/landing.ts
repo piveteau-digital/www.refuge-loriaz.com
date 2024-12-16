@@ -3,33 +3,64 @@ const landing = {
     title: "Refuge de Loriaz",
     subtitle: "Vivez l'expérience de la montagne à 2020m d'altitude",
   },
-  features: {
-    title: "Pourquoi choisir le Refuge de Loriaz",
-    subtitle:
-      "Découvrez le parfait mélange entre aventure en montagne et confort",
-    location: {
-      title: "Emplacement idéal",
-      description: "Situé à 2020m avec une vue imprenable sur les Alpes",
+  hikes: {
+    title: "Randonnées depuis le refuge",
+    subtitle: "Point de départ idéal pour explorer la région",
+    dayHikes: {
+      title: "Randonnées à la journée",
+      items: [
+        {
+          title: "Col de la Terrasse",
+          description: "2h de marche depuis le refuge",
+          difficulty: "Modérée",
+        },
+        {
+          title: "Pointe de la Terrasse",
+          description: "2h de marche depuis le refuge",
+          difficulty: "Modérée",
+        },
+        {
+          title: "Cheval Blanc",
+          description: "5h de marche depuis le refuge via le col de la Terrasse",
+          difficulty: "Difficile",
+        },
+        {
+          title: "Lac du Vieil Emosson",
+          description: "Randonnée panoramique vers le lac",
+          difficulty: "Modérée",
+        },
+        {
+          title: "Traces de dinosaures",
+          description: "2h30 depuis le refuge, proche du col de la Terrasse",
+          difficulty: "Modérée",
+        },
+        {
+          title: "Le Buet (3096m)",
+          description: "Plus haut sommet des Aiguilles Rouges",
+          difficulty: "Difficile",
+        },
+      ],
     },
-    restaurant: {
-      title: "Restaurant de montagne",
-      description: "Cuisine traditionnelle alpine avec des produits locaux",
-    },
-    amenities: {
-      title: "Équipements modernes",
-      description: "WiFi haut débit et installations confortables",
-    },
-    atmosphere: {
-      title: "Ambiance chaleureuse",
-      description: "Une expérience authentique en refuge de montagne",
-    },
-    winter: {
-      title: "Sports d'hiver",
-      description: "Accès direct aux pistes et activités hivernales",
-    },
-    hiking: {
-      title: "Sentiers de randonnée",
-      description: "Connecté aux principaux itinéraires alpins",
+    multiDayHikes: {
+      title: "Circuits multi-jours",
+      items: [
+        {
+          title: "Tour du Mont-Blanc",
+          description: "Étape du célèbre circuit du TMB",
+        },
+        {
+          title: "Tour des Aiguilles Rouges",
+          description: "Circuit à travers le massif des Aiguilles Rouges",
+        },
+        {
+          title: "Tour du Mont Ruan",
+          description: "Randonnée itinérante autour du Mont Ruan",
+        },
+        {
+          title: "Tour de la vallée du Trient",
+          description: "Circuit découverte de la vallée du Trient",
+        },
+      ],
     },
   },
   activities: {
