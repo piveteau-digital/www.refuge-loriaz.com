@@ -1,47 +1,53 @@
 const about = {
-  title: "Our Story",
-  message: "An authentic refuge in the heart of the Alps since 1925",
+  title: "Our History",
+  message: "A historic mountain pasture in the heart of the Alps since 1264",
   attributes: [
     {
-      title: "Authenticity",
-      message: "A genuine mountain refuge preserving its traditional character",
+      title: "Heritage",
+      message: "A site steeped in history, witness to Alpine pastoral life since the 13th century",
     },
     {
-      title: "Passion",
-      message: "A passionate team dedicated to your mountain experience",
+      title: "Adaptation", 
+      message: "A constant evolution through the centuries to adapt to mountain needs",
     },
     {
-      title: "Conviviality",
-      message: "A meeting place and sharing space for all mountain enthusiasts",
+      title: "Renewal",
+      message: "A historic site transformed into a welcoming mountain refuge",
     },
   ],
   timeline: {
     title: "Our History",
     items: [
       {
-        year: "1925",
-        title: "Refuge Construction",
-        description: "The original refuge was built by the French Alpine Club.",
+        year: "1264",
+        title: "First clearings",
+        description: "Settlement of Walser colonists from Upper Valais in Vallorcine and beginning of mountain clearing.",
       },
       {
-        year: "1962",
-        title: "First Renovation",
-        description: "Expansion and modernization of facilities.",
+        year: "1439",
+        title: "First alpine pasture",
+        description: "Official establishment of the communal alpine pasture at Plan de l'Au with 25 sheepfolds.",
       },
       {
-        year: "1998",
-        title: "Major Renovation",
-        description: "Installation of solar panels and comfort improvements.",
+        year: "1615",
+        title: "New site",
+        description: "Relocation of the alpine pasture to a safer site, construction of a 1km irrigation canal.",
       },
       {
-        year: "2020",
-        title: "New Beginning",
-        description: "Takeover by the current team and interior renovations.",
+        year: "1922",
+        title: "Major renovation",
+        description: "Complete reconstruction of the stone barns and dairy.",
       },
+      {
+        year: "1976",
+        title: "Transformation into refuge",
+        description: "Conversion of the former chavanne (cheese dairy) into a staffed mountain refuge.",
+      }
     ],
   },
   team: {
-    title: "Our Team",
+    title: "The Story Continues",
+    description: "Today, our team perpetuates the welcoming spirit of this historic place, offering hikers authentic accommodation at this exceptional site at 1900m altitude.",
     items: [
       {
         name: "Jean-Pierre Martin",
@@ -58,7 +64,7 @@ const about = {
           "An expert in traditional Savoyard cuisine, Marie delights visitors with her authentic dishes.",
       },
     ],
-  },
+  }
 };
 
 export default about;

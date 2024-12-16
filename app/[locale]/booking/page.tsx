@@ -130,8 +130,9 @@ export default function ReservationPage({ params: { locale } }: any) {
   return (
     <div className="min-h-screen bg-gray-50 ">
       <div className="relative h-[30vh] overflow-hidden pt-20">
-        <Image
-          src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
+      <Image
+          src={"/assets/images/heading-section.jpeg"}
+          // src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
           alt="Vue du Refuge de Loriaz"
           fill
           className="object-cover"

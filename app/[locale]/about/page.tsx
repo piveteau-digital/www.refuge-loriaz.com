@@ -28,7 +28,8 @@ export default function AboutPage() {
       {/* Hero Section */}
       <div className="relative h-[50vh] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
+          src={"/assets/images/heading-section.jpeg"}
+          // src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
           alt="Vue du Refuge de Loriaz"
           fill
           className="object-cover"
