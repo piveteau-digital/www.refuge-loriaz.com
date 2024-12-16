@@ -1,50 +1,52 @@
-import { Car, Train, Mountain } from "lucide-react";
+import { Car, Mountain, Footprints } from "lucide-react";
 
+// English Version
 const access = {
   title: "How to Get Here?",
-  message: "All the information to access Refuge de Loriaz",
+  message: "All information to access Refuge de Loriaz",
   ways: [
     {
       icon: Car,
       title: "By car",
-      description:
-        "From Chamonix, take the D1506 towards Vallorcine. Parking at Col des Montets.",
+      description: "From Chamonix (16 km) or Martigny (25 km)",
       details: [
-        "Free parking at Col des Montets",
-        "45 minutes from Chamonix",
-        "1h30 from Geneva",
+        "From Chamonix, past Col des Montets",
+        "Through Buet village",
+        "First left towards Le Couteray",
+        "Two parking areas available in the bends",
       ],
     },
     {
-      icon: Train,
-      title: "By train",
-      description:
-        "Vallorcine train station, then shuttle or taxi to the trailhead.",
+      icon: Footprints,
+      title: "On foot",
+      description: "2-hour walk from Le Couteray parking areas",
       details: [
-        "Regional train from Chamonix or Martigny",
-        "Shuttle service during season",
-        "Taxis available by reservation",
+        "600m elevation gain",
+        "Wide marked trail",
+        "Path through forest and alpine meadows",
+        "Trail starts 150m from parking",
       ],
     },
     {
       icon: Mountain,
-      title: "On foot",
-      description: "2-hour walk from Col des Montets via marked trail.",
+      title: "Alternative routes",
+      description: "Several access options depending on season",
       details: [
-        "Elevation gain: 700m",
-        "Difficulty: moderate",
-        "Trail markers: yellow",
+        "From Vallorcine via Siseray or Crot",
+        "From Châtelard-Frontière via Barberine",
+        "From Emosson dam (summer only)",
+        "By ski touring or snowshoes in winter",
       ],
     },
   ],
   notice: {
     title: "Important Information",
     points: [
-      "Bring good hiking boots",
-      "Check weather conditions before departure",
-      "Bring water and snacks",
-      "The refuge is not accessible by car",
-      "In winter, appropriate equipment required",
+      "Parking mandatory in designated areas",
+      "Do not park at the end of the road",
+      "Winter access only by ski touring or snowshoes",
+      "Consult the High Mountain Office (OHM) for more information",
+      "Contact us for any additional details",
     ],
   },
 };

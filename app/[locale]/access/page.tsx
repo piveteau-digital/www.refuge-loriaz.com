@@ -106,6 +106,8 @@ export default function AccessPage() {
                       >{`• ${message}`}</li>
                     ))}
                 </ul>
+
+                
               </div>
             </motion.div>
           </div>
