@@ -159,7 +159,7 @@ export function Footer() {
 <button
 key={lang.code}
 onClick={() => handleLanguageChange(lang.code)}
-className={`flex w-min items-center px-3 py-2 rounded-md transition-colors ${
+className={`flex w-min items-center px-3  rounded-md transition-colors ${
 getCurrentLocale() === lang.code
   ? 'underline'
   : 'hover:bg-gray-800'
