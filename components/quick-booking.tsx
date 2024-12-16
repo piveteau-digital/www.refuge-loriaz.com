@@ -1,13 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Calendar } from "@/components/ui/calendar";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { fr } from "date-fns/locale";
 import { useTranslations } from "next-intl";
-import { Link } from "@/navigation";
 
 interface QuickBookingProps {
   className?: string;
@@ -18,9 +13,6 @@ export function QuickBooking({
   className = "",
   small = false,
 }: QuickBookingProps) {
-  const [date, setDate] = useState<Date | undefined>(
-    new Date(Date.now() + 3600 * 24 * 1000),
-  );
   const tLanding = useTranslations("landing");
 
   return (
@@ -41,36 +33,15 @@ export function QuickBooking({
             <h2 className="text-3xl font-bold text-center mb-8">
               {tLanding("quickBooking.title")}
             </h2>
-            <div
-              className={cn("flex flex-col justify-center items-center gap-8")}
-            >
-              <div>
-                {/* <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {tLanding("quickBooking.dates")}
-                </label> */}
-                <Calendar
-                  mode="single"
-                  selected={date}
-                  onSelect={setDate}
-                  locale={fr}
-                  className="rounded-md border m-auto"
-                />
-              </div>
-              <div className="space-y-6">
-                <Button className="w-full bg-sky-400 hover:bg-sky-700 text-white">
-                  <Link
-                    className="w-full h-full"
-                    href={{
-                      pathname: "/booking",
-                      query: {
-                        date: date?.toISOString()?.split("T")?.[0],
-                      },
-                    }}
-                  >
-                    {tLanding("quickBooking.check")}
-                  </Link>
-                </Button>
-              </div>
+            <div className="flex justify-center">
+              <iframe 
+                src="https://public.nuit-resa.com/calendrier-527-702a5efa66ab1035b8bf68c7aaace334.html?l=FR&redirection=1&masquer_legende=1&"
+                width="400"
+                height="380"
+                className="border-0"
+                title="Booking Calendar"
+                loading="lazy"
+              />
             </div>
           </motion.div>
         </div>
