@@ -2,7 +2,7 @@
 
 import { Link } from "@/navigation";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 // import { QuickBooking } from "./quick-booking";
 
