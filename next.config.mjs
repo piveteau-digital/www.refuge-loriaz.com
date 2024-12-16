@@ -6,6 +6,7 @@ const authorizedDomains = [
   ["https", "aceternity.com"],
   ["https", "thispersondoesnotexist.com"],
   ["https", "images.unsplash.com"],
+  ["https", "lh3.googleusercontent.com"]
 ];
 
 const images = {

@@ -3,6 +3,11 @@ const landing = {
     title: "Refuge de Loriaz",
     subtitle: "Experience the mountains at 2020m altitude",
   },
+  testimonial: {
+    title: "Reviews from our visitors",
+    note: {value: "4.6/5", suffix: "Based on 230 Google reviews"},
+    more: "See all reviews on Google Maps"
+  },
   hikes: {
     title: "Hikes from the refuge",
     subtitle: "Perfect starting point to explore the region",
