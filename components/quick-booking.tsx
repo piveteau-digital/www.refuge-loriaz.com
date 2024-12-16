@@ -34,7 +34,7 @@ export function QuickBooking({
               {tLanding("quickBooking.title")}
             </h2>
             <div className="flex justify-center">
-              <iframe 
+              <iframe
                 src="https://public.nuit-resa.com/calendrier-527-702a5efa66ab1035b8bf68c7aaace334.html?l=FR&redirection=1&masquer_legende=1&"
                 width="400"
                 height="380"

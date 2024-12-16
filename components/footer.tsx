@@ -3,7 +3,15 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Instagram, Mail, Map, MapPin, Phone, Globe } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  Map,
+  MapPin,
+  Phone,
+  Globe,
+} from "lucide-react";
 import { t } from "@/lib/i18n";
 import appInfos from "@/package.json";
 import { usePathname } from "next/navigation";
@@ -14,13 +22,13 @@ export function Footer() {
   const router = useRouter();
 
   const languages = [
-    { code: 'fr', label: 'Français' },
-    { code: 'en', label: 'English' }
+    { code: "fr", label: "Français" },
+    { code: "en", label: "English" },
   ];
 
   const getCurrentLocale = () => {
-    const pathParts = pathname.split('/');
-    return pathParts[1] === 'fr' || pathParts[1] === 'en' ? pathParts[1] : 'fr';
+    const pathParts = pathname.split("/");
+    return pathParts[1] === "fr" || pathParts[1] === "en" ? pathParts[1] : "fr";
   };
 
   const handleLanguageChange = (locale: string) => {
@@ -143,33 +151,29 @@ export function Footer() {
               </a>
             </div>
           </div>
-
-          
         </div>
 
-<div className="mt-6">
-<h3 className="text-xl font-bold mb-4 flex items-center">
-<Globe className="w-5 h-5 mr-2" />
-{ getCurrentLocale() === "fr" ? "Langue" : "Language"
-    
-}
-</h3>
-<div className="flex space-x-2">
-{languages.map((lang) => (
-<button
-key={lang.code}
-onClick={() => handleLanguageChange(lang.code)}
-className={`flex w-min items-center px-3  rounded-md transition-colors ${
-getCurrentLocale() === lang.code
-  ? 'underline'
-  : 'hover:bg-gray-800'
-}`}
->
-{lang.label}
-</button>
-))}
-</div>
-</div>
+        <div className="mt-6">
+          <h3 className="text-xl font-bold mb-4 flex items-center">
+            <Globe className="w-5 h-5 mr-2" />
+            {getCurrentLocale() === "fr" ? "Langue" : "Language"}
+          </h3>
+          <div className="flex space-x-2">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => handleLanguageChange(lang.code)}
+                className={`flex w-min items-center px-3  rounded-md transition-colors ${
+                  getCurrentLocale() === lang.code
+                    ? "underline"
+                    : "hover:bg-gray-800"
+                }`}
+              >
+                {lang.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
           <p>
