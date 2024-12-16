@@ -157,7 +157,7 @@ export default function ReservationPage({ params: { locale } }: any) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8 overflow-y-scroll"
+          className="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8 overflow-y-scroll h-full"
         >
           <iframe
             ref={iframeRef}
@@ -165,7 +165,7 @@ export default function ReservationPage({ params: { locale } }: any) {
             onLoad={() => handleIframeParams()}
             frameBorder="0"
             width="100%"
-            height="100%"
+            height={typeof window !== "undefined" && window.innerWidth >= 1024 ? "1400": "2000"}
             title="Reservation Form"
           />
         </motion.div>
