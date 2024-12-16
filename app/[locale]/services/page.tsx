@@ -11,7 +11,7 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
-      <Image
+        <Image
           src={"/assets/images/heading-section-services.jpeg"}
           // src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
           alt="Vue du Refuge de Loriaz"

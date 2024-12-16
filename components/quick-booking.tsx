@@ -18,7 +18,9 @@ export function QuickBooking({
   className = "",
   small = false,
 }: QuickBookingProps) {
-  const [date, setDate] = useState<Date | undefined>(new Date(Date.now() + (3600 * 24 * 1000)));
+  const [date, setDate] = useState<Date | undefined>(
+    new Date(Date.now() + 3600 * 24 * 1000),
+  );
   const tLanding = useTranslations("landing");
 
   return (
@@ -55,10 +57,9 @@ export function QuickBooking({
                 />
               </div>
               <div className="space-y-6">
-                
                 <Button className="w-full bg-sky-400 hover:bg-sky-700 text-white">
                   <Link
-                  className="w-full h-full"
+                    className="w-full h-full"
                     href={{
                       pathname: "/booking",
                       query: {

@@ -5,8 +5,8 @@ const landing = {
   },
   testimonial: {
     title: "Reviews from our visitors",
-    note: {value: "4.6/5", suffix: "Based on 230 Google reviews"},
-    more: "See all reviews on Google Maps"
+    note: { value: "4.6/5", suffix: "Based on 230 Google reviews" },
+    more: "See all reviews on Google Maps",
   },
   hikes: {
     title: "Hikes from the refuge",

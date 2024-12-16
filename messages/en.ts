@@ -38,7 +38,8 @@ export const en = {
   footer: {
     contact: {
       title: "Contact",
-      address: "Refuge de Loriaz, 242 chemin de la Chenalette, 74310 Les Houches",
+      address:
+        "Refuge de Loriaz, 242 chemin de la Chenalette, 74310 Les Houches",
       phone: "+33 06 52 53 69 73",
       email: "contact@refuge-loriaz.com",
     },

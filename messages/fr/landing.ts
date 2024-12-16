@@ -5,8 +5,8 @@ const landing = {
   },
   testimonial: {
     title: "Avis de nos visiteurs",
-    note: {value: "4.6/5", suffix: "Basé sur 230 avis Google"},
-    more: "Voir tous les avis sur Google Maps"
+    note: { value: "4.6/5", suffix: "Basé sur 230 avis Google" },
+    more: "Voir tous les avis sur Google Maps",
   },
   hikes: {
     title: "Randonnées depuis le refuge",
@@ -28,7 +28,8 @@ const landing = {
         },
         {
           title: "Cheval Blanc",
-          description: "5h de marche depuis le refuge via le col de la Terrasse",
+          description:
+            "5h de marche depuis le refuge via le col de la Terrasse",
           difficulty: "Difficult",
           difficultyLabel: "Difficile",
         },

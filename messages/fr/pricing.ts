@@ -9,22 +9,14 @@ const pricing = {
           type: "Adulte",
           price: "49€",
           details: "par personne/nuit",
-          includes: [
-            "Repas du soir",
-            "Nuitée",
-            "Petit-déjeuner",
-          ],
+          includes: ["Repas du soir", "Nuitée", "Petit-déjeuner"],
         },
         {
           type: "Adulte Groupe",
           price: "44€",
           details: "par personne/nuit (min. 10 pers.)",
-          includes: [
-            "Repas du soir",
-            "Nuitée", 
-            "Petit-déjeuner",
-          ],
-        }
+          includes: ["Repas du soir", "Nuitée", "Petit-déjeuner"],
+        },
       ],
     },
     extras: {

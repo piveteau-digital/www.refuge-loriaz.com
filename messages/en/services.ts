@@ -1,15 +1,9 @@
-import {
-  Bed,
-  Coffee,
-  Utensils,
-  Mountain,
-  Package,
-  Clock,
-} from "lucide-react";
+import { Bed, Coffee, Utensils, Mountain, Package, Clock } from "lucide-react";
 
 const services = {
   title: "Our Services",
-  message: "Discover everything that Refuge de Loriaz offers for an unforgettable stay",
+  message:
+    "Discover everything that Refuge de Loriaz offers for an unforgettable stay",
   services: [
     {
       title: "Half-Board",

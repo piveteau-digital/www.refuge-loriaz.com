@@ -4,11 +4,13 @@ const about = {
   attributes: [
     {
       title: "Heritage",
-      message: "A site steeped in history, witness to Alpine pastoral life since the 13th century",
+      message:
+        "A site steeped in history, witness to Alpine pastoral life since the 13th century",
     },
     {
-      title: "Adaptation", 
-      message: "A constant evolution through the centuries to adapt to mountain needs",
+      title: "Adaptation",
+      message:
+        "A constant evolution through the centuries to adapt to mountain needs",
     },
     {
       title: "Renewal",
@@ -21,17 +23,20 @@ const about = {
       {
         year: "1264",
         title: "First clearings",
-        description: "Settlement of Walser colonists from Upper Valais in Vallorcine and beginning of mountain clearing.",
+        description:
+          "Settlement of Walser colonists from Upper Valais in Vallorcine and beginning of mountain clearing.",
       },
       {
         year: "1439",
         title: "First alpine pasture",
-        description: "Official establishment of the communal alpine pasture at Plan de l'Au with 25 sheepfolds.",
+        description:
+          "Official establishment of the communal alpine pasture at Plan de l'Au with 25 sheepfolds.",
       },
       {
         year: "1615",
         title: "New site",
-        description: "Relocation of the alpine pasture to a safer site, construction of a 1km irrigation canal.",
+        description:
+          "Relocation of the alpine pasture to a safer site, construction of a 1km irrigation canal.",
       },
       {
         year: "1922",
@@ -41,13 +46,15 @@ const about = {
       {
         year: "1976",
         title: "Transformation into refuge",
-        description: "Conversion of the former chavanne (cheese dairy) into a staffed mountain refuge.",
-      }
+        description:
+          "Conversion of the former chavanne (cheese dairy) into a staffed mountain refuge.",
+      },
     ],
   },
   team: {
     title: "The Story Continues",
-    description: "Today, our team perpetuates the welcoming spirit of this historic place, offering hikers authentic accommodation at this exceptional site at 1900m altitude.",
+    description:
+      "Today, our team perpetuates the welcoming spirit of this historic place, offering hikers authentic accommodation at this exceptional site at 1900m altitude.",
     items: [
       {
         name: "Jean-Pierre Martin",
@@ -64,7 +71,7 @@ const about = {
           "An expert in traditional Savoyard cuisine, Marie delights visitors with her authentic dishes.",
       },
     ],
-  }
+  },
 };
 
 export default about;

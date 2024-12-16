@@ -17,7 +17,7 @@ const RESERVATION_CONFIG = {
 export default function ReservationPage({ params: { locale } }: any) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const searchParams = useSearchParams();
-  const t = useTranslations("booking")
+  const t = useTranslations("booking");
 
   useEffect(() => {
     // Add external CSS
@@ -92,7 +92,7 @@ export default function ReservationPage({ params: { locale } }: any) {
   const handleIframeParams = () => {
     console.log("Iframe loaded");
     window.scrollTo(0, 0);
-    
+
     const date = searchParams.get("date");
     if (!date) return;
 
@@ -101,36 +101,42 @@ export default function ReservationPage({ params: { locale } }: any) {
     if (!iframe) return;
 
     try {
-      const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document;
-      if (!iframeDocument) return ;
+      const iframeDocument =
+        iframe.contentDocument || iframe.contentWindow?.document;
+      if (!iframeDocument) return;
 
       // Try to find and set the date input
-      const arrivalDateInput = iframeDocument.querySelector('#date_arrivee') as HTMLInputElement;
+      const arrivalDateInput = iframeDocument.querySelector(
+        "#date_arrivee",
+      ) as HTMLInputElement;
       if (arrivalDateInput) {
         // Format date to match input requirements (assuming YYYY-MM-DD format)
-        const formattedDate = new Date(date).toISOString().split('T')[0];
+        const formattedDate = new Date(date).toISOString().split("T")[0];
         arrivalDateInput.value = formattedDate;
-        
+
         // Trigger change event to ensure any listeners in the iframe are notified
-        const event = new Event('change', { bubbles: true });
+        const event = new Event("change", { bubbles: true });
         arrivalDateInput.dispatchEvent(event);
       }
     } catch (error) {
       // Handle cross-origin errors
-      console.warn('Unable to access iframe content:', error);
-      
+      console.warn("Unable to access iframe content:", error);
+
       // Alternative: Use postMessage if the iframe is cross-origin
-      iframe.contentWindow?.postMessage({
-        type: 'SET_ARRIVAL_DATE',
-        date: date
-      }, '*');  // Replace '*' with the specific origin for better security
+      iframe.contentWindow?.postMessage(
+        {
+          type: "SET_ARRIVAL_DATE",
+          date: date,
+        },
+        "*",
+      ); // Replace '*' with the specific origin for better security
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-50 ">
       <div className="relative h-[30vh] overflow-hidden pt-20">
-      <Image
+        <Image
           src={"/assets/images/heading-section.jpeg"}
           // src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
           alt="Vue du Refuge de Loriaz"
@@ -140,9 +146,7 @@ export default function ReservationPage({ params: { locale } }: any) {
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold">
-              {t("title")}
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold">{t("title")}</h1>
             {/* <p className="text-lg md:text-xl max-w-2xl mx-auto px-4">
               {t("message")}
             </p> */}

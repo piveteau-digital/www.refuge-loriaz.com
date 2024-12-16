@@ -9,22 +9,14 @@ const pricing = {
           type: "Adult",
           price: "49€",
           details: "per person/night",
-          includes: [
-            "Evening meal",
-            "Overnight stay",
-            "Breakfast",
-          ],
+          includes: ["Evening meal", "Overnight stay", "Breakfast"],
         },
         {
           type: "Adult Group Rate",
           price: "44€",
           details: "per person/night (min. 10 people)",
-          includes: [
-            "Evening meal",
-            "Overnight stay",
-            "Breakfast",
-          ],
-        }
+          includes: ["Evening meal", "Overnight stay", "Breakfast"],
+        },
       ],
     },
     extras: {

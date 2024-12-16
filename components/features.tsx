@@ -44,7 +44,9 @@ export function Features() {
 
         {/* Day Hikes Section */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold mb-8">{t("hikes.dayHikes.title")}</h3>
+          <h3 className="text-2xl font-bold mb-8">
+            {t("hikes.dayHikes.title")}
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {t.raw("hikes.dayHikes.items").map((hike: any, index: number) => (
               <motion.div
@@ -58,7 +60,9 @@ export function Features() {
                 <Mountain className="w-12 h-12 text-sky-400 mb-4" />
                 <h4 className="text-xl font-semibold mb-2">{hike.title}</h4>
                 <p className="text-gray-600 mb-4">{hike.description}</p>
-                <span className={`text-sm font-medium ${getDifficultyColor(hike.difficulty)}`}>
+                <span
+                  className={`text-sm font-medium ${getDifficultyColor(hike.difficulty)}`}
+                >
                   {hike.difficultyLabel}
                 </span>
               </motion.div>
@@ -68,25 +72,29 @@ export function Features() {
 
         {/* Multi-day Hikes Section */}
         <div>
-          <h3 className="text-2xl font-bold mb-8">{t("hikes.multiDayHikes.title")}</h3>
+          <h3 className="text-2xl font-bold mb-8">
+            {t("hikes.multiDayHikes.title")}
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {t.raw("hikes.multiDayHikes.items").map((tour: any, index: number) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-lg shadow-md flex items-center"
-              >
-                <Flag className="w-8 h-8 text-sky-400 mr-4 flex-shrink-0" />
-                <div>
-                  <h4 className="text-lg font-semibold mb-1">{tour.title}</h4>
-                  <p className="text-gray-600">{tour.description}</p>
-                </div>
-                <ArrowRight className="w-6 h-6 text-gray-400 ml-auto flex-shrink-0" />
-              </motion.div>
-            ))}
+            {t
+              .raw("hikes.multiDayHikes.items")
+              .map((tour: any, index: number) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white p-6 rounded-lg shadow-md flex items-center"
+                >
+                  <Flag className="w-8 h-8 text-sky-400 mr-4 flex-shrink-0" />
+                  <div>
+                    <h4 className="text-lg font-semibold mb-1">{tour.title}</h4>
+                    <p className="text-gray-600">{tour.description}</p>
+                  </div>
+                  <ArrowRight className="w-6 h-6 text-gray-400 ml-auto flex-shrink-0" />
+                </motion.div>
+              ))}
           </div>
         </div>
       </div>

@@ -1,15 +1,9 @@
-import {
-  Bed,
-  Coffee,
-  Utensils,
-  Mountain,
-  Package,
-  Clock,
-} from "lucide-react";
+import { Bed, Coffee, Utensils, Mountain, Package, Clock } from "lucide-react";
 
 const services = {
   title: "Nos Services",
-  message: "Découvrez tout ce que le Refuge de Loriaz vous propose pour un séjour inoubliable",
+  message:
+    "Découvrez tout ce que le Refuge de Loriaz vous propose pour un séjour inoubliable",
   services: [
     {
       title: "Demi-Pension",

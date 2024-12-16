@@ -12,7 +12,7 @@ export default function AccessPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-[40vh] overflow-hidden">
-      <Image
+        <Image
           src={"/assets/images/heading-section-access.jpg"}
           // src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
           alt="Vue du Refuge de Loriaz"
@@ -106,8 +106,6 @@ export default function AccessPage() {
                       >{`• ${message}`}</li>
                     ))}
                 </ul>
-
-                
               </div>
             </motion.div>
           </div>

@@ -40,7 +40,7 @@ export default function PricesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="relative h-[50vh] overflow-hidden">
-      <Image
+        <Image
           src={"/assets/images/heading-section.jpeg"}
           // src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
           alt="Vue du Refuge de Loriaz"
