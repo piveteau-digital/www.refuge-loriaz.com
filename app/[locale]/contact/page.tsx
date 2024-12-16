@@ -8,12 +8,47 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useTranslations } from "@/config/@next-intl";
 import Image from "next/image";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
-  const handleSubmit = (e: React.FormEvent) => {
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [sent, setSent] = useState<boolean | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent | any) => {
     e.preventDefault();
-    // Handle form submission
+    
+    const formData = {
+      firstName: e.currentTarget.firstName.value,
+      lastName: e.currentTarget.lastName.value,
+      email: e.currentTarget.email.value,
+      subject: e.currentTarget.subject.value,
+      message: e.currentTarget.message.value,
+    };
+
+    console.log(formData)
+    try {
+      const response = await fetch('/api/contact/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatusMessage(t("form.success"));
+        setSent(true)
+      } else {
+        setSent(false)
+        setStatusMessage(t("form.error"));
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setSent(false)
+      setStatusMessage(t("form.error"));
+    }
   };
 
   const contactInfo = t.raw("contactInfo"),
@@ -104,32 +139,42 @@ export default function ContactPage() {
             <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
               <h2 className="text-2xl font-bold mb-6">{t("message")}</h2>
 
+              {statusMessage && (
+                <div className={cn("mt-4 p-4 rounded", {
+                  "bg-green-100 text-green-800": sent,
+                  "bg-red-100 text-red-800": !sent
+                })}>
+                  {statusMessage}
+                </div>
+              )}
+
+
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">{form.firstName}</Label>
-                    <Input id="firstName" required />
+                    <Input name="firstName" id="firstName" required />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="lastName">{form.lastName}</Label>
-                    <Input id="lastName" required />
+                    <Input name="lastName" id="lastName" required />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email">{form.email}</Label>
-                  <Input id="email" type="email" required />
+                  <Input name="email" id="email" type="email" required />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="subject">{form.subject}</Label>
-                  <Input id="subject" required />
+                  <Input name="subject" id="subject" required />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">{form.message}</Label>
-                  <Textarea id="message" className="min-h-[150px]" required />
+                  <Textarea name="message" id="message" className="min-h-[150px]" required />
                 </div>
 
                 <Button
@@ -143,6 +188,7 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </div>
+
     </div>
   );
 }

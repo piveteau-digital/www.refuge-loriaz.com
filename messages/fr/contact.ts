@@ -30,6 +30,8 @@ const contact = {
     subject: "Sujet",
     message: "Message",
     submit: "Envoyer le message",
+    success: "Votre message a bien été envoyé. Nous vous répondrons rapidement.",
+    error: "Une erreur s'est produite. Votre message n'a pas pu être envoyé."
   },
 };
 
