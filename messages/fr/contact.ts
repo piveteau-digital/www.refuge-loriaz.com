@@ -12,9 +12,9 @@ const contact = {
     },
     address: {
       label: "Adresse",
-      value: `Refuge de Loriaz  
-  74660 Vallorcine  
-  France`,
+      value: `Refuge de Loriaz
+               242 chemin de la Chenalette
+               74310 Les Houches`,
     },
     hours: {
       label: "Horaires d'ouverture",
