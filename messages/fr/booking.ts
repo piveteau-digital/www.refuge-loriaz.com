@@ -1,4 +1,5 @@
 const booking = {
+  title: "Réservez votre séjour",
   confirmation: {
     title: "Votre réservation est confirmée !",
     message:

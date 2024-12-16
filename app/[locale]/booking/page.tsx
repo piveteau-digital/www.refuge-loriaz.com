@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const RESERVATION_CONFIG = {
   BASE_URL:
@@ -15,6 +17,7 @@ const RESERVATION_CONFIG = {
 export default function ReservationPage({ params: { locale } }: any) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const searchParams = useSearchParams();
+  const t = useTranslations("booking")
 
   useEffect(() => {
     // Add external CSS
@@ -125,17 +128,32 @@ export default function ReservationPage({ params: { locale } }: any) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50 ">
+      <div className="relative h-[30vh] overflow-hidden pt-20">
+        <Image
+          src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
+          alt="Vue du Refuge de Loriaz"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold">
+              {t("title")}
+            </h1>
+            {/* <p className="text-lg md:text-xl max-w-2xl mx-auto px-4">
+              {t("message")}
+            </p> */}
+          </div>
+        </div>
+      </div>
       <div className="container mx-auto px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8"
+          className="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
-            Réservez votre séjour
-          </h1>
-
           <iframe
             ref={iframeRef}
             id="nuit-resa_iframe-resa"
