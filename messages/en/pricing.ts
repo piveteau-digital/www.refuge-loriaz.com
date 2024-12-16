@@ -1,72 +1,46 @@
 const pricing = {
   title: "Our Rates",
+  message: "Winter Rates - Advance booking required (minimum 24h notice)",
   sections: {
     accommodation: {
-      title: "Accommodation",
+      title: "Half-Board Packages",
       items: [
         {
-          type: "Dormitory",
-          price: "35€",
+          type: "Adult",
+          price: "49€",
           details: "per person/night",
           includes: [
-            "Shared dormitory accommodation",
-            "Blankets provided",
-            "Access to facilities",
+            "Evening meal",
+            "Overnight stay",
+            "Breakfast",
           ],
         },
         {
-          type: "Double Room",
-          price: "85€",
-          details: "per room/night",
+          type: "Adult Group Rate",
+          price: "44€",
+          details: "per person/night (min. 10 people)",
           includes: [
-            "Private room for 2",
-            "Bed linen provided",
-            "Access to facilities",
+            "Evening meal",
+            "Overnight stay",
+            "Breakfast",
           ],
-        },
+        }
       ],
     },
-    meals: {
-      title: "Dining",
+    extras: {
+      title: "Additional Services",
       items: [
         {
-          type: "Half Board",
-          price: "25€",
-          details: "per person",
-          includes: [
-            "Mountain dinner",
-            "Overnight stay",
-            "Continental breakfast",
-          ],
+          type: "Mountain Guide Rate",
+          price: "29€",
+          details: "per guide/night",
+          includes: ["Half-board accommodation for certified guides"],
         },
         {
-          type: "Breakfast",
+          type: "Packed Lunch",
           price: "9€",
           details: "per person",
-          includes: ["Hot beverages", "Fresh bread", "Pastries", "Jams"],
-        },
-        {
-          type: "Dinner",
-          price: "19€",
-          details: "per person",
-          includes: ["Starter", "Main course", "Dessert"],
-        },
-      ],
-    },
-    activities: {
-      title: "Activities",
-      items: [
-        {
-          type: "Guided Hike",
-          price: "45€",
-          details: "per person",
-          includes: ["Professional guide", "Equipment", "4-8 people"],
-        },
-        {
-          type: "Equipment Rental",
-          price: "15€",
-          details: "per day",
-          includes: ["Walking poles", "Snowshoes (winter)", "Helmet"],
+          includes: ["Available upon reservation"],
         },
       ],
     },
@@ -74,10 +48,9 @@ const pricing = {
   importantInfo: {
     title: "Important Information",
     items: [
-      "Rates are indicative and may vary by season",
-      "10% discount for groups of 8 or more",
-      "Free for children under 5 years",
-      "Tourist tax not included (0.80€ per person per night)",
+      "Advance booking required (minimum 24h notice)",
+      "Tourist tax: 0.80€ per person per night",
+      "Packed lunches available on request: 9€",
     ],
   },
   cta: "Book Now",

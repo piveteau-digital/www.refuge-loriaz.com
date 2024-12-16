@@ -85,7 +85,7 @@ export default function PricesPage() {
           </section>
 
           {/* Meals */}
-          <section className="mb-12">
+          {/* <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6">
               {t("sections.meals.title")}
             </h2>
@@ -96,16 +96,30 @@ export default function PricesPage() {
                   renderPriceCard(item, index),
                 )}
             </div>
-          </section>
+          </section> */}
 
           {/* Activities */}
-          <section className="mb-12">
+          {/* <section className="mb-12">
             <h2 className="text-2xl font-bold mb-6">
               {t("sections.activities.title")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {t
                 .raw("sections.activities.items")
+                .map((item: any, index: number) =>
+                  renderPriceCard(item, index),
+                )}
+            </div>
+          </section> */}
+
+          {/* Extras */}
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold mb-6">
+              {t("sections.extras.title")}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {t
+                .raw("sections.extras.items")
                 .map((item: any, index: number) =>
                   renderPriceCard(item, index),
                 )}

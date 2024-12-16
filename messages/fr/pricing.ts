@@ -1,91 +1,59 @@
 const pricing = {
   title: "Nos Tarifs",
+  message: "Tarifs hiver - Réservation obligatoire (24h minimum à l'avance)",
   sections: {
     accommodation: {
-      title: "Hébergement",
+      title: "Formules Demi-pension",
       items: [
         {
-          type: "Dortoir",
-          price: "35€",
+          type: "Adulte",
+          price: "49€",
           details: "par personne/nuit",
           includes: [
-            "Couchage en dortoir collectif",
-            "Couvertures fournies",
-            "Accès aux sanitaires",
+            "Repas du soir",
+            "Nuitée",
+            "Petit-déjeuner",
           ],
         },
         {
-          type: "Chambre double",
-          price: "85€",
-          details: "par chambre/nuit",
+          type: "Adulte Groupe",
+          price: "44€",
+          details: "par personne/nuit (min. 10 pers.)",
           includes: [
-            "Chambre privative pour 2",
-            "Linge de lit fourni",
-            "Accès aux sanitaires",
+            "Repas du soir",
+            "Nuitée", 
+            "Petit-déjeuner",
           ],
-        },
+        }
       ],
     },
-    meals: {
-      title: "Restauration",
+    extras: {
+      title: "Services Additionnels",
       items: [
         {
-          type: "Demi-pension",
-          price: "25€",
-          details: "par personne",
-          includes: [
-            "Dîner montagnard",
-            "Nuitée",
-            "Petit-déjeuner continental",
-          ],
+          type: "Tarif Guide",
+          price: "29€",
+          details: "par guide/nuit",
+          includes: ["Demi-pension pour guides certifiés"],
         },
         {
-          type: "Petit-déjeuner",
+          type: "Pique-nique",
           price: "9€",
           details: "par personne",
-          includes: [
-            "Boissons chaudes",
-            "Pain frais",
-            "Viennoiseries",
-            "Confitures",
-          ],
-        },
-        {
-          type: "Dîner",
-          price: "19€",
-          details: "par personne",
-          includes: ["Entrée", "Plat principal", "Dessert"],
-        },
-      ],
-    },
-    activities: {
-      title: "Activités",
-      items: [
-        {
-          type: "Randonnée guidée",
-          price: "45€",
-          details: "par personne",
-          includes: ["Guide professionnel", "Équipement", "4-8 personnes"],
-        },
-        {
-          type: "Location matériel",
-          price: "15€",
-          details: "par jour",
-          includes: ["Bâtons de marche", "Raquettes (hiver)", "Casque"],
+          includes: ["Sur réservation uniquement"],
         },
       ],
     },
   },
   importantInfo: {
-    title: "Informations importantes",
+    title: "Informations Importantes",
     items: [
-      "Les tarifs sont donnés à titre indicatif et peuvent varier selon la saison",
-      "Réduction de 10% pour les groupes de plus de 8 personnes",
-      "Gratuit pour les enfants de moins de 5 ans",
-      "Taxe de séjour non incluse (0,80€ par personne et par nuit)",
+      "Réservation obligatoire 24h à l'avance minimum",
+      "Taxe de séjour : 0,80€ par personne et par nuit",
+      "Pique-niques disponibles sur réservation : 9€",
     ],
   },
-  cta: "Réserver maintenant",
+  cta: "Réserver",
 };
 
 export default pricing;
