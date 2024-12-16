@@ -86,6 +86,44 @@ export default function ReservationPage({ params: { locale } }: any) {
     };
   }, [searchParams, locale]);
 
+  const handleIframeParams = () => {
+    console.log("Iframe loaded");
+    window.scrollTo(0, 0);
+    
+    const date = searchParams.get("date");
+    if (!date) return;
+
+    // Get iframe document
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    try {
+      const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document;
+      if (!iframeDocument) return ;
+
+      // Try to find and set the date input
+      const arrivalDateInput = iframeDocument.querySelector('#date_arrivee') as HTMLInputElement;
+      if (arrivalDateInput) {
+        // Format date to match input requirements (assuming YYYY-MM-DD format)
+        const formattedDate = new Date(date).toISOString().split('T')[0];
+        arrivalDateInput.value = formattedDate;
+        
+        // Trigger change event to ensure any listeners in the iframe are notified
+        const event = new Event('change', { bubbles: true });
+        arrivalDateInput.dispatchEvent(event);
+      }
+    } catch (error) {
+      // Handle cross-origin errors
+      console.warn('Unable to access iframe content:', error);
+      
+      // Alternative: Use postMessage if the iframe is cross-origin
+      iframe.contentWindow?.postMessage({
+        type: 'SET_ARRIVAL_DATE',
+        date: date
+      }, '*');  // Replace '*' with the specific origin for better security
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       <div className="container mx-auto px-4 py-8">
@@ -101,7 +139,7 @@ export default function ReservationPage({ params: { locale } }: any) {
           <iframe
             ref={iframeRef}
             id="nuit-resa_iframe-resa"
-            onLoad={() => window.scrollTo(0, 0)}
+            onLoad={() => handleIframeParams()}
             frameBorder="0"
             width="100%"
             height="1500"
