@@ -59,7 +59,7 @@ export function Features() {
                 <h4 className="text-xl font-semibold mb-2">{hike.title}</h4>
                 <p className="text-gray-600 mb-4">{hike.description}</p>
                 <span className={`text-sm font-medium ${getDifficultyColor(hike.difficulty)}`}>
-                  {hike.difficulty}
+                  {hike.difficultyLabel}
                 </span>
               </motion.div>
             ))}
