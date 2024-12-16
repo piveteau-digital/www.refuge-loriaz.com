@@ -79,6 +79,7 @@ export function QuickBooking({
                 </div>
                 <Button className="w-full bg-sky-400 hover:bg-sky-700 text-white">
                   <Link
+                  className="w-full h-full"
                     href={{
                       pathname: "/booking",
                       query: {

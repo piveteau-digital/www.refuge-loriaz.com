@@ -116,14 +116,14 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="flex flex-col items-center text-center"
               >
-                <div className="relative w-32 h-32 mb-4">
+                {/* <div className="relative w-32 h-32 mb-4">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
                     className="rounded-full object-cover"
                   />
-                </div>
+                </div> */}
                 <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                 <p className="text-sky-400 mb-2">{member.role}</p>
                 <p className="text-gray-600">{member.description}</p>
