@@ -113,7 +113,7 @@ export function Testimonials() {
             href="https://www.google.com/maps/place/Refuge+de+Loriaz/@46.0389234,6.7605226,25705m/data=!3m1!1e3!4m15!1m2!2m1!1srefuge+de+loriaz!3m11!1s0x478eb3a36e8bac03:0xde979b0952a3522b!5m2!4m1!1i2!8m2!3d46.0389234!4d6.9129579!9m1!1b1!15sChByZWZ1Z2UgZGUgbG9yaWF6kgEMbW91bnRhaW5faHV04AEA!16s%2Fg%2F11g1tf6cg1?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3  text-base font-medium rounded-md hover:bg-sky-700 text-sky-700 border-2 border-sky-700 hover:text-white transition-colors btn btn-outline btn-primary"
           >
             {t("more")}
           </a>
