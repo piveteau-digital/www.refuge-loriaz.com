@@ -5,47 +5,11 @@ import Image from "next/image";
 import { Heart, Mountain, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-const teamMembers = [
-  {
-    name: "Jean-Pierre Martin",
-    role: "Gardien du refuge",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
-    description:
-      "Passionné de montagne depuis 30 ans, Jean-Pierre veille sur le refuge et ses visiteurs avec bienveillance.",
-  },
-  {
-    name: "Marie Dubois",
-    role: "Chef cuisinière",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-    description:
-      "Experte en cuisine traditionnelle savoyarde, Marie régale les visiteurs avec ses plats authentiques.",
-  },
-];
-
-const timeline = [
-  {
-    year: "1925",
-    title: "Construction du refuge",
-    description: "Le refuge original fut construit par le Club Alpin Français.",
-  },
-  {
-    year: "1962",
-    title: "Première rénovation",
-    description: "Agrandissement et modernisation des installations.",
-  },
-  {
-    year: "1998",
-    title: "Rénovation majeure",
-    description:
-      "Installation de panneaux solaires et amélioration du confort.",
-  },
-  {
-    year: "2020",
-    title: "Nouveau départ",
-    description:
-      "Reprise du refuge par l'équipe actuelle et rénovations intérieures.",
-  },
-];
+const icons = [
+  <Mountain key={`attributes.icon-0`} className="w-12 h-12 mx-auto mb-4 text-sky-400" />,
+  <Heart key={`attributes.icon-1`} className="w-12 h-12 mx-auto mb-4 text-sky-400" />,
+  <Users key={`attributes.icon-2`} className="w-12 h-12 mx-auto mb-4 text-sky-400" />,
+]
 
 export default function AboutPage() {
   const t = useTranslations("about");
@@ -86,7 +50,8 @@ export default function AboutPage() {
                 className="text-center"
                 transition={{ delay: idx * 0.3 }}
               >
-                <Mountain className="w-12 h-12 mx-auto mb-4 text-sky-400" />
+                {icons[idx]}
+                {/* <attribute.icon className="w-12 h-12 mx-auto mb-4 text-sky-400" /> */}
                 <h3 className="text-xl font-bold mb-2">{attribute.title}</h3>
                 <p className="text-gray-600">{attribute.message}</p>
               </motion.div>

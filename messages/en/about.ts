@@ -4,7 +4,7 @@ const about = {
   attributes: [
     {
       title: "Authenticity",
-      message: "A genuine mountain refuge preserving its traditional character",
+      message: "A genuine mountain refuge preserving its traditional character"
     },
     {
       title: "Passion",

@@ -47,17 +47,6 @@ export function Hero({ hero, common }: IntlMessages) {
         <div className="container mx-auto px-4 h-full">
           <div className="h-full lg:flex lg:gap-8 items-center justify-center lg:px-10 2xl:px-28 max-lg:grid">
             <div className="flex my-auto flex-col justify-center items-center lg:items-start text-center lg:text-left text-white">
-              <button
-                onClick={() => setIsMuted(!isMuted)}
-                className="fixed top-2 left-1/2 z-50 p-4 rounded-full bg-white/50 hover:bg-black/70 transition-colors border border-white/20 backdrop-blur-sm"
-                aria-label={isMuted ? hero.unmute : hero.mute}
-              >
-                {isMuted ? (
-                  <VolumeX className="w-6 h-6 text-[#555]" />
-                ) : (
-                  <Volume2 className="w-6 h-6 text-[#555]" />
-                )}
-              </button>
               <motion.h1
                 style={{ y: titleY }}
                 initial={{ opacity: 0, y: 20 }}
@@ -76,6 +65,10 @@ export function Hero({ hero, common }: IntlMessages) {
               >
                 {hero.subtitle}
               </motion.p>
+              
+
+              <div className="flex justify-center lg:justify-between items-center w-full">
+                
               <motion.button
                 style={{ y: buttonY }}
                 initial={{ opacity: 0, y: 20 }}
@@ -85,22 +78,42 @@ export function Hero({ hero, common }: IntlMessages) {
               >
                 <Link href={"#booking" as "/"}>{common.book}</Link>
               </motion.button>
-            </div>
 
-            {/* <div className="hidden lg:flex items-center justify-center lg:justify-end hidden">
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
+              <motion.button
+                onClick={() => setIsMuted(!isMuted)}
+                className="max-lg:hidden z-50 p-3 rounded-full bg-white/50 hover:bg-black/70 transition-colors border border-white/20 backdrop-blur-sm"
+                style={{ y: buttonY }}
+                initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="w-full"
-                style={{ y: bookY }}
+                transition={{ duration: 0.3, delay: 1 }}
+
+                aria-label={isMuted ? hero.unmute : hero.mute}
               >
-                <QuickBooking
-                  small
-                  className="max-w-sm flex flex-col justify-center items-center overflow-hidden"
-                />
-              </motion.div>
-            </div> */}
+                {isMuted ? (
+                  <VolumeX className="w-6 h-6 text-[#555]" />
+                ) : (
+                  <Volume2 className="w-6 h-6 text-[#555]" />
+                )}
+              {isMuted && (
+                <motion.div
+                  className="absolute -inset-1"
+                  animate={{
+                    scale: [1, 1.3, 1.1, 1, 1.4],
+                    opacity: [0.5, 0.2, 0],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <div className="w-full h-full rounded-full bg-white/30" />
+                </motion.div>
+              )}
+              </motion.button>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -111,7 +124,39 @@ export function Hero({ hero, common }: IntlMessages) {
         transition={{ duration: 1, delay: 1 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white lg:hidden"
       >
-        <ChevronDown className="w-8 h-8 animate-bounce" />
+                      <motion.button
+                onClick={() => setIsMuted(!isMuted)}
+                className="lg:hidden z-50 p-3 rounded-full bg-white/50 hover:bg-black/70 transition-colors border border-white/20 backdrop-blur-sm"
+                style={{ y: buttonY }}
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 1 }}
+
+                aria-label={isMuted ? hero.unmute : hero.mute}
+              >
+                {isMuted ? (
+                  <VolumeX className="w-6 h-6 text-[#555]" />
+                ) : (
+                  <Volume2 className="w-6 h-6 text-[#555]" />
+                )}
+              {isMuted && (
+                <motion.div
+                  className="absolute -inset-1"
+                  animate={{
+                    scale: [1, 1.3, 1.1, 1, 1.4],
+                    opacity: [0.5, 0.2, 0],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <div className="w-full h-full rounded-full bg-white/30" />
+                </motion.div>
+              )}
+              </motion.button>
+        {/* <ChevronDown className="w-8 h-8 animate-bounce" /> */}
       </motion.div>
     </div>
   );
