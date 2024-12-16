@@ -17,8 +17,8 @@ const landing = {
         {
           title: "Col de la Terrasse",
           description: "2-hour hike from the refuge",
-          difficulty: "Moderate",
-          difficultyLabel: "Moderate",
+          difficulty: "Easy",
+          difficultyLabel: "Easy",
         },
         {
           title: "Pointe de la Terrasse",
@@ -35,8 +35,8 @@ const landing = {
         {
           title: "Vieil Emosson Lake",
           description: "Panoramic hike to the lake",
-          difficulty: "Moderate",
-          difficultyLabel: "Moderate",
+          difficulty: "Easy",
+          difficultyLabel: "Easy",
         },
         {
           title: "Dinosaur tracks",

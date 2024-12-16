@@ -17,8 +17,8 @@ const landing = {
         {
           title: "Col de la Terrasse",
           description: "2h de marche depuis le refuge",
-          difficulty: "Moderate",
-          difficultyLabel: "Modérée",
+          difficulty: "Easy",
+          difficultyLabel: "Facile",
         },
         {
           title: "Pointe de la Terrasse",
@@ -35,8 +35,8 @@ const landing = {
         {
           title: "Lac du Vieil Emosson",
           description: "Randonnée panoramique vers le lac",
-          difficulty: "Moderate",
-          difficultyLabel: "Modérée",
+          difficulty: "Easy",
+          difficultyLabel: "Facile",
         },
         {
           title: "Traces de dinosaures",
