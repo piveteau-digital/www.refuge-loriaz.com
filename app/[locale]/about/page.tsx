@@ -6,10 +6,19 @@ import { Heart, Mountain, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const icons = [
-  <Mountain key={`attributes.icon-0`} className="w-12 h-12 mx-auto mb-4 text-sky-400" />,
-  <Heart key={`attributes.icon-1`} className="w-12 h-12 mx-auto mb-4 text-sky-400" />,
-  <Users key={`attributes.icon-2`} className="w-12 h-12 mx-auto mb-4 text-sky-400" />,
-]
+  <Mountain
+    key={`attributes.icon-0`}
+    className="w-12 h-12 mx-auto mb-4 text-sky-400"
+  />,
+  <Heart
+    key={`attributes.icon-1`}
+    className="w-12 h-12 mx-auto mb-4 text-sky-400"
+  />,
+  <Users
+    key={`attributes.icon-2`}
+    className="w-12 h-12 mx-auto mb-4 text-sky-400"
+  />,
+];
 
 export default function AboutPage() {
   const t = useTranslations("about");

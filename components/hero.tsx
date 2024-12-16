@@ -65,53 +65,49 @@ export function Hero({ hero, common }: IntlMessages) {
               >
                 {hero.subtitle}
               </motion.p>
-              
 
               <div className="flex justify-center lg:justify-between items-center w-full">
-                
-              <motion.button
-                style={{ y: buttonY }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0 }}
-                className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all lg:self-start"
-              >
-                <Link href={"#booking" as "/"}>{common.book}</Link>
-              </motion.button>
-
-              <motion.button
-                onClick={() => setIsMuted(!isMuted)}
-                className="max-lg:hidden z-50 p-3 rounded-full bg-white/50 hover:bg-black/70 transition-colors border border-white/20 backdrop-blur-sm"
-                style={{ y: buttonY }}
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 1 }}
-
-                aria-label={isMuted ? hero.unmute : hero.mute}
-              >
-                {isMuted ? (
-                  <VolumeX className="w-6 h-6 text-[#555]" />
-                ) : (
-                  <Volume2 className="w-6 h-6 text-[#555]" />
-                )}
-              {isMuted && (
-                <motion.div
-                  className="absolute -inset-1"
-                  animate={{
-                    scale: [1, 1.3, 1.1, 1, 1.4],
-                    opacity: [0.5, 0.2, 0],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                <motion.button
+                  style={{ y: buttonY }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0 }}
+                  className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all lg:self-start"
                 >
-                  <div className="w-full h-full rounded-full bg-white/30" />
-                </motion.div>
-              )}
-              </motion.button>
+                  <Link href={"#booking" as "/"}>{common.book}</Link>
+                </motion.button>
 
+                <motion.button
+                  onClick={() => setIsMuted(!isMuted)}
+                  className="max-lg:hidden z-50 p-3 rounded-full bg-white/50 hover:bg-black/70 transition-colors border border-white/20 backdrop-blur-sm"
+                  style={{ y: buttonY }}
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: 1 }}
+                  aria-label={isMuted ? hero.unmute : hero.mute}
+                >
+                  {isMuted ? (
+                    <VolumeX className="w-6 h-6 text-[#555]" />
+                  ) : (
+                    <Volume2 className="w-6 h-6 text-[#555]" />
+                  )}
+                  {isMuted && (
+                    <motion.div
+                      className="absolute -inset-1"
+                      animate={{
+                        scale: [1, 1.3, 1.1, 1, 1.4],
+                        opacity: [0.5, 0.2, 0],
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <div className="w-full h-full rounded-full bg-white/30" />
+                    </motion.div>
+                  )}
+                </motion.button>
               </div>
             </div>
           </div>
@@ -124,38 +120,37 @@ export function Hero({ hero, common }: IntlMessages) {
         transition={{ duration: 1, delay: 1 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white lg:hidden"
       >
-                      <motion.button
-                onClick={() => setIsMuted(!isMuted)}
-                className="lg:hidden z-50 p-3 rounded-full bg-white/50 hover:bg-black/70 transition-colors border border-white/20 backdrop-blur-sm"
-                style={{ y: buttonY }}
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 1 }}
-
-                aria-label={isMuted ? hero.unmute : hero.mute}
-              >
-                {isMuted ? (
-                  <VolumeX className="w-6 h-6 text-[#555]" />
-                ) : (
-                  <Volume2 className="w-6 h-6 text-[#555]" />
-                )}
-              {isMuted && (
-                <motion.div
-                  className="absolute -inset-1"
-                  animate={{
-                    scale: [1, 1.3, 1.1, 1, 1.4],
-                    opacity: [0.5, 0.2, 0],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <div className="w-full h-full rounded-full bg-white/30" />
-                </motion.div>
-              )}
-              </motion.button>
+        <motion.button
+          onClick={() => setIsMuted(!isMuted)}
+          className="lg:hidden z-50 p-3 rounded-full bg-white/50 hover:bg-black/70 transition-colors border border-white/20 backdrop-blur-sm"
+          style={{ y: buttonY }}
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, delay: 1 }}
+          aria-label={isMuted ? hero.unmute : hero.mute}
+        >
+          {isMuted ? (
+            <VolumeX className="w-6 h-6 text-[#555]" />
+          ) : (
+            <Volume2 className="w-6 h-6 text-[#555]" />
+          )}
+          {isMuted && (
+            <motion.div
+              className="absolute -inset-1"
+              animate={{
+                scale: [1, 1.3, 1.1, 1, 1.4],
+                opacity: [0.5, 0.2, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <div className="w-full h-full rounded-full bg-white/30" />
+            </motion.div>
+          )}
+        </motion.button>
         {/* <ChevronDown className="w-8 h-8 animate-bounce" /> */}
       </motion.div>
     </div>
