@@ -4,7 +4,7 @@ const contact = {
   contactInfo: {
     phone: {
       label: "Phone",
-      value: "+33 4 50 54 07 69",
+      value: "+33 06 52 53 69 73",
     },
     email: {
       label: "Email",

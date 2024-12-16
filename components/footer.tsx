@@ -22,7 +22,7 @@ export function Footer() {
               </p>
               <p className="flex items-center">
                 <Phone className="w-5 h-5 mr-2" />
-                <a href="tel:+33450540769">{t("footer.contact.phone")}</a>
+                <a href="tel:+33 06 52 53 69 73">{t("footer.contact.phone")}</a>
               </p>
               <p className="flex items-center">
                 <Mail className="w-5 h-5 mr-2" />
