@@ -74,7 +74,7 @@ export function Hero({ hero, common }: IntlMessages) {
                   transition={{ duration: 0.3, delay: 0 }}
                   className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all lg:self-start"
                 >
-                  <Link href={"#booking" as "/"}>{common.book}</Link>
+                  <Link href={"/booking"}>{common.book}</Link>
                 </motion.button>
 
                 <motion.button
