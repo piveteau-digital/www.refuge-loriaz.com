@@ -66,7 +66,7 @@ const services = {
       description: "To enhance your stay",
       icon: Clock,
       details: [
-        "Packed lunches available (8€)",
+        "Packed lunches available (9€)",
         "Sleeping bag liner rental",
         "Advance booking required",
         "Drinks menu available",

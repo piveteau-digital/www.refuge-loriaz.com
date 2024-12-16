@@ -66,7 +66,7 @@ const services = {
       description: "Pour faciliter votre séjour",
       icon: Clock,
       details: [
-        "Pique-niques sur commande (8€)",
+        "Pique-niques sur commande (9€)",
         "Location de draps de sac",
         "Réservation obligatoire",
         "Carte des boissons disponible",
