@@ -7,7 +7,7 @@ export default async function sendMail(params: any) {
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_SMTP_HOST!, // Replace with your SMTP server
       port: +process.env.MAIL_SMTP_PORT!, // Replace with your SMTP port
-      secure: false, // true for 465, false for other ports
+      secure: true, // true for 465, false for other ports
       auth: {
         user: process.env.MAIL_USER_AUTH!, // Replace with your email
         pass: process.env.MAIL_USER_PASSWORD!, // Replace with your email password
