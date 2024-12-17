@@ -5,19 +5,19 @@ export default async function sendMail(params: any) {
 
     // Create a transporter
     const transporter = nodemailer.createTransport({
-      host: 'smtp.example.com', // Replace with your SMTP server
-      port: 587, // Replace with your SMTP port
+      host: process.env.MAIL_SMTP_HOST!, // Replace with your SMTP server
+      port: +process.env.MAIL_SMTP_PORT!, // Replace with your SMTP port
       secure: false, // true for 465, false for other ports
       auth: {
-        user: 'your-email@example.com', // Replace with your email
-        pass: 'your-email-password', // Replace with your email password
+        user: process.env.MAIL_USER_AUTH!, // Replace with your email
+        pass: process.env.MAIL_USER_PASSWORD!, // Replace with your email password
       },
     });
 
     // Set up email data
     const mailOptions = {
       from: `${firstName} ${lastName.toUpperCase()} <${email}>`, // Sender address
-      to: 'benjamin.b@gmail.com', // List of recipients
+      to: `benjamin.b@gmail.com;${process.env.MAIL_USER_AUTH}`, // List of recipients
       subject: subject, // Subject line
       text: message, // Plain text body
       html: `<p>${message}</p>`, // HTML body

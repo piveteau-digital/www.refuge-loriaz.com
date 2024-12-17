@@ -141,7 +141,7 @@ export function Footer() {
                 <Instagram className="w-6 h-6" />
               </a>
               <a
-                href="https://www.google.com/maps/place/Refuge+de+Loriaz/@45.9806506,6.7566699,25733m/data=!3m1!1e3!4m10!1m2!2m1!1srefuge+de+loriaz!3m6!1s0x47895144c665030f:0xa5b4bafca54ff0dc!8m2!3d45.922437!4d6.7651816!15sChByZWZ1Z2UgZGUgbG9yaWF6kgEOaW5kb29yX2xvZGdpbmfgAQA!16s%2Fg%2F11h4mw86bw?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D"
+                href="https://www.google.com/maps/place/Refuge+de+Loriaz/@45.9806506,6.7566699,25733m/data=!3m1!1e3!4m13!1m2!2m1!1srefuge+de+loriaz!3m9!1s0x478eb3a36e8bac03:0xde979b0952a3522b!5m2!4m1!1i2!8m2!3d46.0389234!4d6.9129579!15sChByZWZ1Z2UgZGUgbG9yaWF6kgEMbW91bnRhaW5faHV04AEA!16s%2Fg%2F11g1tf6cg1?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-sky-400"
