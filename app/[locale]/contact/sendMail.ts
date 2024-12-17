@@ -16,11 +16,13 @@ export default async function sendMail(params: any) {
 
     // Set up email data
     const mailOptions = {
-      from: `${firstName} ${lastName.toUpperCase()} <${email}>`, // Sender address
+      from: `${process.env.MAIL_USER_FROM}`, // Sender address
       to: `benjamin.b@gmail.com;${process.env.MAIL_USER_AUTH}`, // List of recipients
       subject: subject, // Subject line
       text: message, // Plain text body
-      html: `<p>${message}</p>`, // HTML body
+      html: `
+      <h1>From: ${firstName} ${lastName.toUpperCase()} <${email}></h1>
+      <p>${message}</p>`, // HTML body
     };
 
     // Send mail
