@@ -17,8 +17,8 @@ const landing = {
         {
           title: "Col de la Terrasse",
           description: "2-hour hike from the refuge",
-          difficulty: "Easy",
-          difficultyLabel: "Easy",
+          difficulty: "Moderate",
+          difficultyLabel: "Moderate",
         },
         {
           title: "Pointe de la Terrasse",
