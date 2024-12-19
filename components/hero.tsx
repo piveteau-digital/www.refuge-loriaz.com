@@ -67,7 +67,7 @@ export function Hero({ hero, common }: IntlMessages) {
               </motion.p>
 
               <div className="flex justify-center lg:justify-between items-center w-full">
-                <motion.button
+                {/* <motion.button
                   style={{ y: buttonY }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export function Hero({ hero, common }: IntlMessages) {
                   className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all lg:self-start"
                 >
                   <Link href={"/booking"}>{common.book}</Link>
-                </motion.button>
+                </motion.button> */}
 
                 <motion.button
                   onClick={() => setIsMuted(!isMuted)}
