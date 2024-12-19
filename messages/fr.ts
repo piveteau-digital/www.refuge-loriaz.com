@@ -1,6 +1,6 @@
 export const fr = {
   weather: {
-    title: "Météo actuelle",
+    title: "Météo à vallorcine village",
     temperature: {
       title: "Température",
       value: "12°C",

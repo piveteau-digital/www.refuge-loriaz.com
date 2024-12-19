@@ -1,6 +1,6 @@
 export const en = {
   weather: {
-    title: "Current Weather",
+    title: "Weather at vallorcine village",
     temperature: {
       title: "Temperature",
       value: "12°C",
