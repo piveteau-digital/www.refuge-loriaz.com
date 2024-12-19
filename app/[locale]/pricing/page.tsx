@@ -151,11 +151,11 @@ export default function PricesPage() {
           </motion.div>
 
           {/* CTA */}
-          <div className="text-center">
+          {/* <div className="text-center">
             <Button asChild className="bg-sky-400 hover:bg-sky-500">
               <Link href="/reservation">{t("cta")}</Link>
             </Button>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </div>
