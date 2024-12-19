@@ -8,6 +8,7 @@ import Image from "next/image";
 
 const RESERVATION_CONFIG = {
   BASE_URL:
+    // "https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html",
     "https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html",
   HOTEL_ID: "b4hcmajfxr",
   CSS_URL: "https://public.nuit-resa.com/css/forms-clients-inc.css",
