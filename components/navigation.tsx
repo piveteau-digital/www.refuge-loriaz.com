@@ -72,7 +72,7 @@ export function Navigation() {
                 isScrolled ? "bg-sky-400 text-white" : "bg-white text-gray-900"
               } hover:opacity-90 transition-all`}
             >
-              <Link href={"/reservation" as "/booking"}>{t("book")}</Link>
+              {/* <Link href={"/reservation" as "/booking"}>{t("book")}</Link> */}
             </Button>
           </div>
 
@@ -117,13 +117,13 @@ export function Navigation() {
                   {item.name}
                 </Link>
               ))}
-              <Link
+              {/* <Link
                 href={"/booking" as "/booking"}
                 className="block px-3 py-2 text-white bg-sky-400 rounded-md text-center"
                 onClick={() => setIsOpen(false)}
               >
                 {t("book")}
-              </Link>
+              </Link> */}
             </div>
           </motion.div>
         )}
