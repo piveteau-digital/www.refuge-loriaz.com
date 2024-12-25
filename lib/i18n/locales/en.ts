@@ -122,7 +122,7 @@ export const en = {
       title: "Contact",
       address: "Refuge de Loriaz, 74660 Vallorcine",
       phone: "+33 06 52 53 69 73",
-      email: "contact@refuge-loriaz.com",
+      email: "refuge.loriaz@orange.fr",
     },
     quickLinks: {
       title: "Quick Links",

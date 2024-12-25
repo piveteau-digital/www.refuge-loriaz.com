@@ -8,7 +8,7 @@ const contact = {
     },
     email: {
       label: "Email",
-      value: "contact@refuge-loriaz.com",
+      value: "refuge.loriaz@orange.fr",
     },
     address: {
       label: "Adresse",

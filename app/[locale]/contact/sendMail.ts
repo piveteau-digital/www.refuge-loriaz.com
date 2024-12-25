@@ -17,7 +17,7 @@ export default async function sendMail(params: any) {
     // Set up email data
     const mailOptions = {
       from: `${process.env.MAIL_USER_FROM}`, // Sender address
-      to: `benjamin.b@gmail.com;${process.env.MAIL_USER_AUTH}`, // List of recipients
+      to: `bottollier.b@gmail.com;${process.env.MAIL_USER_AUTH}`, // List of recipients
       subject: subject, // Subject line
       text: message, // Plain text body
       html: `

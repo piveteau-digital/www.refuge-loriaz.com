@@ -56,7 +56,7 @@ export function Footer() {
               </p>
               <p className="flex items-center">
                 <Mail className="w-5 h-5 mr-2" />
-                <a href="mailto:contact@refuge-loriaz.com">
+                <a href="mailto:refuge.loriaz@orange.fr">
                   {t("footer.contact.email")}
                 </a>
               </p>
