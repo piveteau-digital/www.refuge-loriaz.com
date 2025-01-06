@@ -86,7 +86,7 @@ export default function ContactPage() {
           </div>
           <div className="ml-3">
             <p className="text-sky-700 text-sm">
-              Pour toutes réservations, merci de nous contacter par téléphone au : {' '}
+              {t("bookingNotice")}{' '}
               <a 
                 href={`tel:${contactInfo.phone.value}`} 
                 className="font-medium hover:text-sky-600 underline"
