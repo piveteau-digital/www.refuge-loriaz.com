@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -15,31 +15,45 @@ const RESERVATION_CONFIG = {
   JS_URL: "https://public.nuit-resa.com/js/forms-clients-inc.js",
 };
 
+const RESERVATION_CONFIG_2 = {
+  BASE_URL:
+    // "https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html",
+    "http://localhost:3000/en",
+  HOTEL_ID: "f6v4gdbzhf", //https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html?h=f6v4gdbzhf&l=FR&
+  // CSS_URL: "https://public.nuit-resa.com/css/forms-clients-inc.css",
+  // JS_URL: "https://public.nuit-resa.com/js/forms-clients-inc.js",
+};
+
+
 export default function ReservationPage({ params: { locale } }: any) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const searchParams = useSearchParams();
   const t = useTranslations("booking");
+  const [iframeSize, setIframeSize] = useState({
+    width: 0,
+    height: 0,
+  });
 
   useEffect(() => {
     // Add external CSS
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = RESERVATION_CONFIG.CSS_URL;
-    document.head.appendChild(link);
+    // const link = document.createElement("link");
+    // link.rel = "stylesheet";
+    // link.href = RESERVATION_CONFIG.CSS_URL;
+    // document.head.appendChild(link);
 
     // Add external JS
-    const script = document.createElement("script");
-    script.src = RESERVATION_CONFIG.JS_URL;
-    script.async = true;
-    document.body.appendChild(script);
+    // const script = document.createElement("script");
+    // script.src = RESERVATION_CONFIG.JS_URL;
+    // script.async = true;
+    // document.body.appendChild(script);
 
     // Create iframe URL
     const url = encodeURIComponent(window.location.href);
     const date = searchParams.get("date");
     const guests = searchParams.get("guests");
 
-    let iframeUrl = new URL(RESERVATION_CONFIG.BASE_URL);
-    iframeUrl.searchParams.set("h", RESERVATION_CONFIG.HOTEL_ID);
+    let iframeUrl = new URL(RESERVATION_CONFIG_2.BASE_URL);
+    iframeUrl.searchParams.set("h", RESERVATION_CONFIG_2.HOTEL_ID);
     iframeUrl.searchParams.set("l", (locale || "fr").toUpperCase());
     iframeUrl.searchParams.set("sh", "1");
     iframeUrl.searchParams.set("url", url);
@@ -83,15 +97,21 @@ export default function ReservationPage({ params: { locale } }: any) {
     }
 
     return () => {
-      document.head.removeChild(link);
-      if (script.parentNode) {
-        document.body.removeChild(script);
-      }
+      // document.head.removeChild(link);
+      // if (script.parentNode) {
+      //   document.body.removeChild(script);
+      // }
     };
   }, [searchParams, locale]);
 
   const handleIframeParams = () => {
-    console.log("Iframe loaded");
+    setTimeout(() => {
+      setIframeSize({
+        width: iframeRef.current?.ownerDocument.body.scrollWidth || 800,
+        height: iframeRef.current?.ownerDocument.body.scrollHeight || 1140,
+      });
+    }, 500);
+
     window.scrollTo(0, 0);
 
     const date = searchParams.get("date");
@@ -135,8 +155,8 @@ export default function ReservationPage({ params: { locale } }: any) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 ">
-      <div className="relative h-[30vh] overflow-hidden pt-20">
+    <div className="bg-gray-50 min-h-screen">
+      <div className="relative pt-20 h-[30vh] overflow-hidden">
         <Image
           src={"/assets/images/heading-section.jpeg"}
           // src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
@@ -145,20 +165,20 @@ export default function ReservationPage({ params: { locale } }: any) {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex justify-center items-center">
           <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold">{t("title")}</h1>
-            {/* <p className="text-lg md:text-xl max-w-2xl mx-auto px-4">
+            <h1 className="font-bold text-4xl md:text-5xl">{t("title")}</h1>
+            {/* <p className="mx-auto px-4 max-w-2xl text-lg md:text-xl">
               {t("message")}
             </p> */}
           </div>
         </div>
       </div>
-      {/* <div className="container mx-auto px-4 py-8">
+      {/* <div className="mx-auto px-4 py-8 container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8 overflow-y-scroll h-full"
+          className="bg-white shadow-lg mx-auto p-6 md:p-8 rounded-xl max-w-7xl h-full overflow-y-scroll"
         >
           <iframe
             ref={iframeRef}
@@ -177,6 +197,34 @@ export default function ReservationPage({ params: { locale } }: any) {
           />
         </motion.div>
       </div> */}
+
+      <div className="relative mx-auto px-4 py-8 container" >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white shadow-lg mx-auto p-6 md:p-8 rounded-xl max-w-7xl h-full"
+          style={{
+            height: iframeSize.height,
+          }}
+        >
+          <iframe
+            ref={iframeRef}
+            id="nuit-resa_iframe-resa"
+            onLoad={() => handleIframeParams()}
+            className="w-full h-full"
+            width="100%"
+            // frameBorder="0"
+            // height={
+            //   typeof window !== "undefined" && window.innerWidth >= 1024
+            //     ? "1400"
+            //     : typeof window !== "undefined" && window.innerWidth >= 530
+            //       ? "2200"
+            //       : "2800"
+            // }
+            title="Reservation Form"
+          />
+        </motion.div>
+      </div>
     </div>
   );
 }
