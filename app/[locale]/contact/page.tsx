@@ -18,7 +18,7 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent | any) => {
     e.preventDefault();
-    
+
     const formData = {
       firstName: e.currentTarget.firstName.value,
       lastName: e.currentTarget.lastName.value,
@@ -27,26 +27,26 @@ export default function ContactPage() {
       message: e.currentTarget.message.value,
     };
 
-    console.log(formData)
+    console.log(formData);
     try {
-      const response = await fetch('/api/contact/send', {
-        method: 'POST',
+      const response = await fetch("/api/contact/send", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         setStatusMessage(t("form.success"));
-        setSent(true)
+        setSent(true);
       } else {
-        setSent(false)
+        setSent(false);
         setStatusMessage(t("form.error"));
       }
     } catch (error) {
-      console.error('Error:', error);
-      setSent(false)
+      console.error("Error:", error);
+      setSent(false);
       setStatusMessage(t("form.error"));
     }
   };
@@ -80,15 +80,23 @@ export default function ContactPage() {
       <div className="border-sky-400 bg-sky-50 mx-auto mt-8 p-4 border-l-4 max-w-5xl">
         <div className="flex">
           <div className="flex-shrink-0">
-            <svg className="w-5 h-5 text-sky-400" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+            <svg
+              className="w-5 h-5 text-sky-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clipRule="evenodd"
+              />
             </svg>
           </div>
           <div className="ml-3">
             <p className="text-sky-700 text-sm">
-              {t("bookingNotice")}{' '}
-              <a 
-                href={`tel:${contactInfo.phone.value}`} 
+              {t("bookingNotice")}{" "}
+              <a
+                href={`tel:${contactInfo.phone.value}`}
                 className="font-medium hover:text-sky-600 underline"
               >
                 {contactInfo.phone.value}
@@ -161,14 +169,15 @@ export default function ContactPage() {
               <h2 className="mb-6 font-bold text-2xl">{t("message")}</h2>
 
               {statusMessage && (
-                <div className={cn("mt-4 p-4 rounded", {
-                  "bg-green-100 text-green-800": sent,
-                  "bg-red-100 text-red-800": !sent
-                })}>
+                <div
+                  className={cn("mt-4 p-4 rounded", {
+                    "bg-green-100 text-green-800": sent,
+                    "bg-red-100 text-red-800": !sent,
+                  })}
+                >
                   {statusMessage}
                 </div>
               )}
-
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="gap-4 grid grid-cols-1 sm:grid-cols-2">
@@ -195,7 +204,12 @@ export default function ContactPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="message">{form.message}</Label>
-                  <Textarea name="message" id="message" className="min-h-[150px]" required />
+                  <Textarea
+                    name="message"
+                    id="message"
+                    className="min-h-[150px]"
+                    required
+                  />
                 </div>
 
                 <Button
@@ -209,7 +223,6 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </div>
-
     </div>
   );
 }

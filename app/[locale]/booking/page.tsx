@@ -24,7 +24,6 @@ const RESERVATION_CONFIG_2 = {
   // JS_URL: "https://public.nuit-resa.com/js/forms-clients-inc.js",
 };
 
-
 export default function ReservationPage({ params: { locale } }: any) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const searchParams = useSearchParams();
@@ -198,7 +197,7 @@ export default function ReservationPage({ params: { locale } }: any) {
         </motion.div>
       </div> */}
 
-      <div className="relative mx-auto px-4 py-8 container" >
+      <div className="relative mx-auto px-4 py-8 container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
