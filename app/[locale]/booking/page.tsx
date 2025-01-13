@@ -18,7 +18,7 @@ const RESERVATION_CONFIG = {
 const RESERVATION_CONFIG_2 = {
   BASE_URL:
     // "https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html",
-    "http://localhost:3000/en",
+    "http://localhost:3000/en/refuge-loriaz/forms/booking",
   HOTEL_ID: "f6v4gdbzhf", //https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html?h=f6v4gdbzhf&l=FR&
   // CSS_URL: "https://public.nuit-resa.com/css/forms-clients-inc.css",
   // JS_URL: "https://public.nuit-resa.com/js/forms-clients-inc.js",
