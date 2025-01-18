@@ -1,8 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cloud, Sun, Thermometer, Wind } from "lucide-react";
-import { t } from "@/lib/i18n";
+import { Sun, Thermometer, Wind } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+
+
+
+function fetchWeatherData() {
+// Example coordinates for New York
+const latitude = 46.039;
+const longitude = 6.913;
+
+// Construct the API URL with required parameters
+const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code,wind_speed_10m`;
+
+// Fetch the data
+return fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // Current weather
+    const current = data.current;
+    
+    return{
+      temperature: `${current.temperature_2m}°C`,
+      wind: `${current.wind_speed_10m} km/h`,
+      weather: current.weather_code
+    };
+  });
+}
 
 const iconClassName = "mx-auto mb-4 w-12 h-12";
 
@@ -21,6 +47,14 @@ const WeatherItem = ({ title, value, icon }: { title: string; value: string; ico
 };
 
 export function Weather() {
+  const [weatherData, setWeatherData] = useState<{ temperature: string; wind: string; weather: string } | null>(null);
+  const t = useTranslations("landing");
+  useEffect(() => {
+    fetchWeatherData()
+    .then(setWeatherData)
+  }, []);
+
+  console.log(weatherData);
   return (
     <section className="bg-gray-900 py-16 text-white">
       <div className="mx-auto px-4 container">
@@ -36,18 +70,18 @@ export function Weather() {
           <div className="flex flex-wrap justify-between gap-4">
             <WeatherItem
               title={t("weather.temperature.title")}
-              value={t("weather.temperature.value")}
+              value={weatherData?.temperature || t("weather.temperature.value")}
               icon={<Thermometer className={iconClassName} />}
             />
             <WeatherItem
               title={t("weather.wind.title")}
-              value={t("weather.wind.value")}
+              value={weatherData?.wind || t("weather.wind.value")}
               icon={<Wind className={iconClassName} />}
             />
             <WeatherItem
               title={t("weather.conditions.title")}
-              value={t("weather.conditions.value")}
-              icon={<Cloud className={iconClassName} />}
+              value={typeof weatherData?.weather === "number" ? t(`weather.conditions.value.${weatherData?.weather}`) : "-"}
+              icon={<Sun className={iconClassName} />}
             />
           </div>
           <div className="flex justify-center items-center mt-8 w-full">

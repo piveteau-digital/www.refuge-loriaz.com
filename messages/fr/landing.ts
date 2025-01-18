@@ -3,6 +3,42 @@ const landing = {
     title: "Refuge de Loriaz",
     subtitle: "Vivez l'expérience de la montagne à 2020m d'altitude",
   },
+  weather: {
+    title: "Météo à vallorcine village",
+    temperature: {
+      title: "Température",
+      value: "-",
+    },
+    conditions: {
+      title: "Conditions",
+      value: {
+        0: 'Ciel clair',
+        1: 'Ciel principalement clair',
+        2: 'Partiellement nuageux',
+        3: 'Nuageux',
+        45: 'Brouillard',
+        48: 'Brouillard avec givre',
+        51: 'Bruine légère',
+        53: 'Bruine modérée',
+        55: 'Bruine dense',
+        61: 'Légère pluie',
+        63: 'Pluie modérée',
+        65: 'Pluie forte',
+        71: 'Faible chute de neige',
+        73: 'Chute de neige modérée',
+        75: 'Chute de neige forte',
+        80: 'Averses de pluie légères',
+        81: 'Averses de pluie modérées',
+        82: 'Averses de pluie violentes',
+        95: 'Orage'
+      },
+    },
+    wind: {
+      title: "Vent",
+      value: "-",
+    },
+  },
+
   testimonial: {
     title: "Avis de nos visiteurs",
     note: { value: "4.6/5", suffix: "Basé sur 230 avis Google" },

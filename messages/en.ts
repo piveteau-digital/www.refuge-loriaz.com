@@ -1,23 +1,4 @@
 export const en = {
-  weather: {
-    title: "Weather at vallorcine village",
-    temperature: {
-      title: "Temperature",
-      value: "12°C",
-    },
-    conditions: {
-      title: "Conditions",
-      value: "Partly Cloudy",
-    },
-    wind: {
-      title: "Wind Speed",
-      value: "15 km/h",
-    },
-    uv: {
-      title: "UV Index",
-      value: "Moderate",
-    },
-  },
   testimonials: {
     title: "Guest Experiences",
     subtitle:

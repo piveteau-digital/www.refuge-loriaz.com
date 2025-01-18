@@ -1,23 +1,4 @@
 export const fr = {
-  weather: {
-    title: "Météo à vallorcine village",
-    temperature: {
-      title: "Température",
-      value: "12°C",
-    },
-    conditions: {
-      title: "Conditions",
-      value: "Partiellement nuageux",
-    },
-    wind: {
-      title: "Vent",
-      value: "15 km/h",
-    },
-    uv: {
-      title: "Indice UV",
-      value: "Modéré",
-    },
-  },
   testimonials: {
     title: "Avis de nos clients",
     subtitle:
