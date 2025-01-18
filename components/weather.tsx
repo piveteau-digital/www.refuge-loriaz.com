@@ -86,8 +86,10 @@ export function Weather() {
           </div>
           <div className="flex justify-center items-center mt-8 w-full">
             <iframe
-              className="w-full min-h-[360px]"
+              className="w-full"
               loading="lazy"
+              width="800"
+              height="500"
               src="https://www.skylinewebcams.com/webcam/france/auvergne-rhone-alpes/vallorcine/vallorcine-mont-blanc.html?w=5366"
               allowFullScreen
             ></iframe>
