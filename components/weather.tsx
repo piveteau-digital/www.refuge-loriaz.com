@@ -84,12 +84,10 @@ export function Weather() {
               icon={<Sun className={iconClassName} />}
             />
           </div>
-          <div className="flex justify-center items-center mt-8 w-full">
+          <div className="relative mt-8 w-full" style={{ paddingTop: "62.5%" }}>
             <iframe
-              className="w-full"
+              className="top-0 left-0 absolute w-full h-full"
               loading="lazy"
-              width="800"
-              height="500"
               src="https://www.skylinewebcams.com/webcam/france/auvergne-rhone-alpes/vallorcine/vallorcine-mont-blanc.html?w=5366"
               allowFullScreen
             ></iframe>
