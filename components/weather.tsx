@@ -56,7 +56,7 @@ export function Weather() {
 
   console.log(weatherData);
   return (
-    <section className="bg-gray-900 py-16 text-white">
+    <section className="bg-gray-900 py-16 text-white" id="live">
       <div className="mx-auto px-4 container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
