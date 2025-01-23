@@ -18,6 +18,8 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent | any) => {
     e.preventDefault();
+
+    if (sent) return;
     
     const formData = {
       firstName: e.currentTarget.firstName.value,
@@ -199,6 +201,7 @@ export default function ContactPage() {
                 </div>
 
                 <Button
+                  disabled={!!sent}
                   type="submit"
                   className="bg-sky-400 hover:bg-sky-500 w-full"
                 >
