@@ -15,10 +15,11 @@ export default function ContactPage() {
   const t = useTranslations("contact");
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [sent, setSent] = useState<boolean | null>(null);
+  const [submitting, setSubmitting] = useState<boolean | null>(null);
 
   const handleSubmit = async (e: React.FormEvent | any) => {
     e.preventDefault();
-
+    setSubmitting(true);
     if (sent) return;
     
     const formData = {
@@ -201,7 +202,7 @@ export default function ContactPage() {
                 </div>
 
                 <Button
-                  disabled={!!sent}
+                  disabled={!!sent || !!submitting}
                   type="submit"
                   className="bg-sky-400 hover:bg-sky-500 w-full"
                 >
