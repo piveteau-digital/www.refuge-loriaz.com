@@ -184,6 +184,13 @@ export default function ReservationPage({ params: { locale } }: any) {
           animate={{ opacity: 1, y: -100 }}
           className="bg-white shadow-lg mx-auto p-6 md:p-8 rounded-xl max-w-2xl h-full overflow-y-scroll"
         >
+
+          <div className="flex flex-col justify-center items-center w-full">  
+            <p className="bg-blue-100 px-4 py-2 rounded-md w-full text-blue-800 text-sm">
+              Petite phrase + de 10 personnes
+            </p>
+          </div>
+
           <iframe
             className="flex flex-col justify-center items-center w-full"
             ref={iframeRef}
