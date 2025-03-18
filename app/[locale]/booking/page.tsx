@@ -51,6 +51,7 @@ export default function ReservationPage({ params: { locale } }: any) {
     iframeUrl.searchParams.set("l", (locale || "fr").toUpperCase());
     iframeUrl.searchParams.set("sh", "1");
     iframeUrl.searchParams.set("url", url);
+    iframeUrl.searchParams.set("startDate", "2025-03-23");
 
     // Add date parameters if date is provided
     if (date) {
