@@ -27,6 +27,26 @@ const nextConfig = {
         source: "/:path/sitemap.xml",
         destination: "/api/:path/sitemap-xml",
       },
+      {
+        source: "/:locale/dashboard/:path*",
+        destination: `${process.env.AZBOOKED_APP_URL}/:locale/dashboard/:path*`,
+      },
+      {
+        source: "/:locale/auth/:path*",
+        destination: `${process.env.AZBOOKED_APP_URL}/:locale/auth/:path*`,
+      },
+      {
+        source: "/:locale/dashboard",
+        destination: `${process.env.AZBOOKED_APP_URL}/:locale/dashboard`,
+      },
+      {
+        source: "/_next/:path*",
+        destination: `${process.env.AZBOOKED_APP_URL}/_next/:path*`,
+      },
+      {
+        source: "/__nextjs_font/:path*",
+        destination: `${process.env.AZBOOKED_APP_URL}/__nextjs_font/:path*`,
+      },
     ];
   },
   images,

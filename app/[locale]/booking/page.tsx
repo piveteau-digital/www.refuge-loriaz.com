@@ -1,15 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useIsClient } from "@/hooks/useIsClient";
+import { Loader } from "@/components/ui/loader";
 
 const RESERVATION_CONFIG = {
   BASE_URL:
     // "https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html",
-    "https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html",
+    "http://localhost:3001/accommodations/cm7x6h0xn0002eb004jufzsmi/form",
   HOTEL_ID: "f6v4gdbzhf", //https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html?h=f6v4gdbzhf&l=FR&
   CSS_URL: "https://public.nuit-resa.com/css/forms-clients-inc.css",
   JS_URL: "https://public.nuit-resa.com/js/forms-clients-inc.js",
@@ -19,8 +21,14 @@ export default function ReservationPage({ params: { locale } }: any) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const searchParams = useSearchParams();
   const t = useTranslations("booking");
+  const [loading, setLoading] = useState(true);
+  const isClient = useIsClient();
+
+
+  console.log("isClient", isClient)
 
   useEffect(() => {
+    if (!isClient) return;
     // Add external CSS
     const link = document.createElement("link");
     link.rel = "stylesheet";
@@ -82,16 +90,18 @@ export default function ReservationPage({ params: { locale } }: any) {
       console.log("Iframe URL:", iframeUrl.toString()); // For debugging
     }
 
+    setLoading(false);
+
     return () => {
       document.head.removeChild(link);
       if (script.parentNode) {
         document.body.removeChild(script);
       }
     };
-  }, [searchParams, locale]);
+  }, [searchParams, locale, isClient]);
 
   const handleIframeParams = () => {
-    console.log("Iframe loaded");
+    console.log("Iframe loaded", iframeRef);
     window.scrollTo(0, 0);
 
     const date = searchParams.get("date");
@@ -132,51 +142,70 @@ export default function ReservationPage({ params: { locale } }: any) {
         "*",
       ); // Replace '*' with the specific origin for better security
     }
+
+    setLoading(false);
   };
 
+  if (!isClient) return (
+    <div className="flex justify-center items-center h-screen">
+      <Loader className="size-32" />
+    </div>
+  ) 
+  
+  if (isClient) {
+    console.log(window)
+  }
+
+
   return (
-    <div className="min-h-screen bg-gray-50 ">
-      <div className="relative h-[30vh] overflow-hidden pt-20">
+    <div className="bg-gray-50 min-h-screen">
+      <div className="relative pt-20 h-[30vh] overflow-hidden">
         <Image
           src={"/assets/images/heading-section.jpeg"}
           // src="https://images.unsplash.com/photo-1519681393784-d120267933ba"
           alt="Vue du Refuge de Loriaz"
           fill
-          className="object-cover"
+          className="h-screen object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold">{t("title")}</h1>
-            {/* <p className="text-lg md:text-xl max-w-2xl mx-auto px-4">
-              {t("message")}
-            </p> */}
+        <div className="absolute inset-0 flex justify-center items-center">
+          <div className="text-white text-center">
+            <h1 className="font-bold text-2xl md:text-5xl">{t("title")}</h1>
+            <p className="mx-auto px-4 max-w-2xl text-md md:text-xl">
+              {t("description")}
+            </p>
           </div>
         </div>
       </div>
-      {/* <div className="container mx-auto px-4 py-8">
+      <div className="relative mx-auto px-2 py-8 container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8 overflow-y-scroll h-full"
+          animate={{ opacity: 1, y: -100 }}
+          className="bg-white shadow-lg mx-auto p-6 md:p-8 rounded-xl max-w-2xl h-full overflow-y-scroll"
         >
           <iframe
+            className="flex flex-col justify-center items-center w-full"
             ref={iframeRef}
             id="nuit-resa_iframe-resa"
             onLoad={() => handleIframeParams()}
-            frameBorder="0"
             width="100%"
-            height={
-              typeof window !== "undefined" && window.innerWidth >= 1024
-                ? "1400"
-                : window.innerWidth >= 530
-                  ? "2200"
-                  : "2800"
+            height={880
+              // typeof window !== "undefined" && window.innerWidth >= 768
+              //   ? "960"
+              //   : "1020"
             }
             title="Reservation Form"
           />
         </motion.div>
-      </div> */}
+      </div>
+      {loading && (
+        <div className="z-50 absolute inset-0 flex justify-center items-center bg-black/30">
+          <Loader className="size-32" />
+        </div>
+      )}
+
+
+
     </div>
   );
 }

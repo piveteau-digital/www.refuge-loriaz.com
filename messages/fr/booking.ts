@@ -1,5 +1,6 @@
 const booking = {
   title: "Réservez votre séjour",
+  description: "Bienvenue au Refuge de Loriaz. Veuillez remplir le formulaire ci-dessous pour réserver votre séjour.",
   confirmation: {
     title: "Votre réservation est confirmée !",
     message:
