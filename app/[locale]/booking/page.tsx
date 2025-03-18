@@ -9,12 +9,8 @@ import { useIsClient } from "@/hooks/useIsClient";
 import { Loader } from "@/components/ui/loader";
 
 const RESERVATION_CONFIG = {
-  BASE_URL:
+  BASE_URL: process.env.NEXT_PUBLIC_ACCOMMODATION_FORM_URL ?? "",
     // "https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html",
-    "http://localhost:3001/accommodations/cm7x6h0xn0002eb004jufzsmi/form",
-  HOTEL_ID: "f6v4gdbzhf", //https://public.nuit-resa.com/reservations-702a5efa66ab1035b8bf68c7aaace334.html?h=f6v4gdbzhf&l=FR&
-  CSS_URL: "https://public.nuit-resa.com/css/forms-clients-inc.css",
-  JS_URL: "https://public.nuit-resa.com/js/forms-clients-inc.js",
 };
 
 export default function ReservationPage({ params: { locale } }: any) {
@@ -31,15 +27,8 @@ export default function ReservationPage({ params: { locale } }: any) {
     if (!isClient) return;
     // Add external CSS
     const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = RESERVATION_CONFIG.CSS_URL;
-    document.head.appendChild(link);
 
-    // Add external JS
-    const script = document.createElement("script");
-    script.src = RESERVATION_CONFIG.JS_URL;
-    script.async = true;
-    document.body.appendChild(script);
+    document.head.appendChild(link);
 
     // Create iframe URL
     const url = encodeURIComponent(window.location.href);
@@ -47,43 +36,6 @@ export default function ReservationPage({ params: { locale } }: any) {
     const guests = searchParams.get("guests");
 
     let iframeUrl = new URL(RESERVATION_CONFIG.BASE_URL);
-    iframeUrl.searchParams.set("h", RESERVATION_CONFIG.HOTEL_ID);
-    iframeUrl.searchParams.set("l", (locale || "fr").toUpperCase());
-    iframeUrl.searchParams.set("sh", "1");
-    iframeUrl.searchParams.set("url", url);
-    iframeUrl.searchParams.set("startDate", "2025-03-23");
-
-    // Add date parameters if date is provided
-    if (date) {
-      const dateObj = new Date(date);
-      if (!isNaN(dateObj.getTime())) {
-        iframeUrl.searchParams.set("jour", dateObj.getDate().toString());
-        iframeUrl.searchParams.set("mois", (dateObj.getMonth() + 1).toString());
-        iframeUrl.searchParams.set("annee", dateObj.getFullYear().toString());
-
-        // Calculate jour_nb (day of year)
-        const start = new Date(dateObj.getFullYear(), 0, 0);
-        const diff = dateObj.getTime() - start.getTime();
-        const oneDay = 1000 * 60 * 60 * 24;
-        const dayOfYear = Math.floor(diff / oneDay);
-        iframeUrl.searchParams.set("jour_nb", dayOfYear.toString());
-      }
-    }
-
-    // Add guests parameters
-    if (guests) {
-      iframeUrl.searchParams.set("nbn_min", guests);
-      iframeUrl.searchParams.set("nbn_max", guests);
-    }
-
-    // Add default parameters
-    iframeUrl.searchParams.set("hebergement", "527");
-    iframeUrl.searchParams.set("nbn_bs", "0");
-    iframeUrl.searchParams.set("nbn_ms", "0");
-    iframeUrl.searchParams.set("nbn_hs", "0");
-    iframeUrl.searchParams.set("nbn_ths", "0");
-    iframeUrl.searchParams.set("nbn_vacs", "0");
-    iframeUrl.searchParams.set("enfants_accept", "1");
 
     // Update iframe src
     if (iframeRef.current) {
@@ -95,57 +47,8 @@ export default function ReservationPage({ params: { locale } }: any) {
 
     return () => {
       document.head.removeChild(link);
-      if (script.parentNode) {
-        document.body.removeChild(script);
-      }
     };
   }, [searchParams, locale, isClient]);
-
-  const handleIframeParams = () => {
-    console.log("Iframe loaded", iframeRef);
-    window.scrollTo(0, 0);
-
-    const date = searchParams.get("date");
-    if (!date) return;
-
-    // Get iframe document
-    const iframe = iframeRef.current;
-    if (!iframe) return;
-
-    try {
-      const iframeDocument =
-        iframe.contentDocument || iframe.contentWindow?.document;
-      if (!iframeDocument) return;
-
-      // Try to find and set the date input
-      const arrivalDateInput = iframeDocument.querySelector(
-        "#date_arrivee",
-      ) as HTMLInputElement;
-      if (arrivalDateInput) {
-        // Format date to match input requirements (assuming YYYY-MM-DD format)
-        const formattedDate = new Date(date).toISOString().split("T")[0];
-        arrivalDateInput.value = formattedDate;
-
-        // Trigger change event to ensure any listeners in the iframe are notified
-        const event = new Event("change", { bubbles: true });
-        arrivalDateInput.dispatchEvent(event);
-      }
-    } catch (error) {
-      // Handle cross-origin errors
-      console.warn("Unable to access iframe content:", error);
-
-      // Alternative: Use postMessage if the iframe is cross-origin
-      iframe.contentWindow?.postMessage(
-        {
-          type: "SET_ARRIVAL_DATE",
-          date: date,
-        },
-        "*",
-      ); // Replace '*' with the specific origin for better security
-    }
-
-    setLoading(false);
-  };
 
   if (!isClient) return (
     <div className="flex justify-center items-center h-screen">
@@ -195,13 +98,8 @@ export default function ReservationPage({ params: { locale } }: any) {
             className="flex flex-col justify-center items-center w-full"
             ref={iframeRef}
             id="nuit-resa_iframe-resa"
-            onLoad={() => handleIframeParams()}
             width="100%"
-            height={880
-              // typeof window !== "undefined" && window.innerWidth >= 768
-              //   ? "960"
-              //   : "1020"
-            }
+            height={880}
             title="Reservation Form"
           />
         </motion.div>
