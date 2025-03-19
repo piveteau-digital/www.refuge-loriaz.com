@@ -28,16 +28,16 @@ const nextConfig = {
         destination: "/api/:path/sitemap-xml",
       },
       {
+        source: "/:locale/dashboard",
+        destination: `${process.env.AZBOOKED_APP_URL}/:locale/dashboard`,
+      },
+      {
         source: "/:locale/dashboard/:path*",
         destination: `${process.env.AZBOOKED_APP_URL}/:locale/dashboard/:path*`,
       },
       {
         source: "/:locale/auth/:path*",
         destination: `${process.env.AZBOOKED_APP_URL}/:locale/auth/:path*`,
-      },
-      {
-        source: "/:locale/dashboard",
-        destination: `${process.env.AZBOOKED_APP_URL}/:locale/dashboard`,
       },
       {
         source: "/_next/static/:path*",
