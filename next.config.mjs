@@ -30,17 +30,14 @@ const nextConfig = {
       {
         source: "/:locale/dashboard/:path*",
         destination: `${process.env.AZBOOKED_APP_URL}/:locale/dashboard/:path*`,
-        basePath: false,
       },
       {
         source: "/:locale/auth/:path*",
         destination: `${process.env.AZBOOKED_APP_URL}/:locale/auth/:path*`,
-        basePath: false,
       },
       {
         source: "/:locale/dashboard",
         destination: `${process.env.AZBOOKED_APP_URL}/:locale/dashboard`,
-        basePath: false,
       },
       {
         source: "/_next/:path*",
