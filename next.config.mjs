@@ -40,13 +40,18 @@ const nextConfig = {
         destination: `${process.env.AZBOOKED_APP_URL}/:locale/dashboard`,
       },
       {
-        source: "/_next/:path*",
-        destination: `${process.env.AZBOOKED_APP_URL}/_next/:path*`,
+        source: "/_next/static/:path*",
+        destination: `${process.env.AZBOOKED_APP_URL}/_next/static/:path*`,
         basePath: false,
       },
       {
-        source: "/__nextjs_font/:path*",
-        destination: `${process.env.AZBOOKED_APP_URL}/__nextjs_font/:path*`,
+        source: "/_next/image/:path*", 
+        destination: `${process.env.AZBOOKED_APP_URL}/_next/image/:path*`,
+        basePath: false,
+      },
+      {
+        source: "/_next/data/:path*",
+        destination: `${process.env.AZBOOKED_APP_URL}/_next/data/:path*`, 
         basePath: false,
       },
     ];
