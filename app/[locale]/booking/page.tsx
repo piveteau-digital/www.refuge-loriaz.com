@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useIsClient } from "@/hooks/useIsClient";
 import { Loader } from "@/components/ui/loader";
+import { Phone } from "lucide-react";
 
 const RESERVATION_CONFIG = {
   BASE_URL: process.env.NEXT_PUBLIC_ACCOMMODATION_FORM_URL ?? "",
@@ -17,6 +18,7 @@ export default function ReservationPage({ params: { locale } }: any) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const searchParams = useSearchParams();
   const t = useTranslations("booking");
+  const tContact = useTranslations("contact");
   const [loading, setLoading] = useState(true);
   const isClient = useIsClient();
 
@@ -60,6 +62,7 @@ export default function ReservationPage({ params: { locale } }: any) {
     console.log(window)
   }
 
+  const contactInfo = tContact.raw("contactInfo");
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -85,13 +88,37 @@ export default function ReservationPage({ params: { locale } }: any) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: -100 }}
-          className="bg-white shadow-lg mx-auto p-6 md:p-8 rounded-xl max-w-2xl h-full overflow-y-scroll"
+          className="bg-white shadow-lg mx-auto p-6 md:p-8 !pt-2 rounded-xl max-w-2xl h-full overflow-y-scroll"
         >
+          <div className="bg-sky-50 mx-auto my-4 mb-6 p-4 border-sky-400 border-r-4 border-l-4 rounded-md max-w-5xl">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg
+                  className="w-5 h-5 text-sky-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <p className="text-sky-700 text-sm">
+                  {tContact("specialBookingNotice")}{" "}
+                  <br />
 
-          <div className="flex flex-col justify-center items-center w-full">  
-            <p className="bg-blue-100 px-4 py-2 rounded-md w-full text-blue-800 text-sm">
-              Petite phrase + de 10 personnes
-            </p>
+                  <a
+                    href={`tel:${contactInfo.phone.value}`}
+                    className="font-medium hover:text-sky-600 underline"
+                  >
+                    {contactInfo.phone.value}
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
 
           <iframe
@@ -109,9 +136,6 @@ export default function ReservationPage({ params: { locale } }: any) {
           <Loader className="size-32" />
         </div>
       )}
-
-
-
     </div>
   );
 }
