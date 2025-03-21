@@ -116,6 +116,9 @@ export default function ReservationPage({ params: { locale } }: any) {
                   >
                     {contactInfo.phone.value}
                   </a>
+                  <br />
+
+                  {"Les reservations en ligne ouvrent samedi 22 mars."}
                 </p>
               </div>
             </div>
