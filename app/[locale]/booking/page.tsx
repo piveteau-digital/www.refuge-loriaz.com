@@ -109,13 +109,12 @@ export default function ReservationPage({ params: { locale } }: any) {
                 <p className="text-sky-700 text-sm">
                   {tContact("specialBookingNotice")} <br />
                   <a
+                    target="_blank"
                     href={`tel:${contactInfo.phone.value}`}
                     className="font-medium hover:text-sky-600 underline"
                   >
                     {contactInfo.phone.value}
                   </a>
-                  <br />
-                  {"Les reservations en ligne ouvrent samedi 22 mars."}
                 </p>
               </div>
             </div>
