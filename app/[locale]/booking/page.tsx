@@ -76,8 +76,8 @@ export default function ReservationPage({ params: { locale } }: any) {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex justify-center items-center">
-          <div className="text-white text-center">
-            <h1 className="font-bold text-2xl md:text-5xl">{t("title")}</h1>
+          <div className="max-md:mt-8 text-white text-center">
+            <h1 className="font-bold text-xl md:text-5xl">{t("title")}</h1>
             <p className="mx-auto px-4 max-w-2xl text-md md:text-xl">
               {t("description")}
             </p>
@@ -86,8 +86,8 @@ export default function ReservationPage({ params: { locale } }: any) {
       </div>
       <div className="relative mx-auto px-2 py-8 container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: -100 }}
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: -60 }}
           className="bg-white shadow-lg mx-auto p-6 md:p-8 !pt-2 rounded-xl max-w-2xl h-full overflow-y-scroll"
         >
           <div className="bg-sky-50 mx-auto my-4 mb-6 p-4 border-sky-400 border-r-4 border-l-4 rounded-md max-w-5xl">
@@ -107,9 +107,7 @@ export default function ReservationPage({ params: { locale } }: any) {
               </div>
               <div className="ml-3">
                 <p className="text-sky-700 text-sm">
-                  {tContact("specialBookingNotice")}{" "}
-                  <br />
-
+                  {tContact("specialBookingNotice")} <br />
                   <a
                     href={`tel:${contactInfo.phone.value}`}
                     className="font-medium hover:text-sky-600 underline"
@@ -117,7 +115,6 @@ export default function ReservationPage({ params: { locale } }: any) {
                     {contactInfo.phone.value}
                   </a>
                   <br />
-
                   {"Les reservations en ligne ouvrent samedi 22 mars."}
                 </p>
               </div>
