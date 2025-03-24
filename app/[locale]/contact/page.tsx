@@ -30,7 +30,6 @@ export default function ContactPage() {
       message: e.currentTarget.message.value,
     };
 
-    console.log(formData)
     try {
       const response = await fetch('/api/contact/send', {
         method: 'POST',
@@ -69,7 +68,7 @@ export default function ContactPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex justify-center items-center">
-          <div className="text-center text-white">
+          <div className="text-white text-center">
             <h1 className="mb-4 font-bold text-4xl md:text-5xl">
               {t("title")}
             </h1>
@@ -80,7 +79,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="border-sky-400 bg-sky-50 mx-auto mt-8 p-4 border-l-4 max-w-5xl">
+      <div className="bg-sky-50 mx-auto mt-8 p-4 border-sky-400 border-l-4 max-w-5xl">
         <div className="flex">
           <div className="flex-shrink-0">
             <svg className="w-5 h-5 text-sky-400" viewBox="0 0 20 20" fill="currentColor">

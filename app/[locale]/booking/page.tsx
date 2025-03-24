@@ -23,8 +23,6 @@ export default function ReservationPage({ params: { locale } }: any) {
   const isClient = useIsClient();
 
 
-  console.log("isClient", isClient)
-
   useEffect(() => {
     if (!isClient) return;
     // Add external CSS
@@ -56,8 +54,8 @@ export default function ReservationPage({ params: { locale } }: any) {
     <div className="flex justify-center items-center h-screen">
       <Loader className="size-32" />
     </div>
-  ) 
-  
+  )
+
   if (isClient) {
     console.log(window)
   }
