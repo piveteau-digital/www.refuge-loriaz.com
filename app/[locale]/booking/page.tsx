@@ -62,6 +62,8 @@ export default function ReservationPage({ params: { locale } }: any) {
 
   const contactInfo = tContact.raw("contactInfo");
 
+  const show = searchParams.get("show");
+
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="relative pt-20 h-[30vh] overflow-hidden">
@@ -118,14 +120,14 @@ export default function ReservationPage({ params: { locale } }: any) {
             </div>
           </div>
 
-          <iframe
+          {show === "refuge-20250324" && <iframe
             className="flex flex-col justify-center items-center w-full"
             ref={iframeRef}
             id="nuit-resa_iframe-resa"
             width="100%"
             height={880}
             title="Reservation Form"
-          />
+          />}
         </motion.div>
       </div>
       {loading && (
