@@ -20,9 +20,9 @@ export default async function Home() {
   return (
     <>
       <Hero {...heroData} />
-      <div id="booking">
+      {/* <div id="booking"> */}
         <QuickBooking />
-      </div>
+      {/* </div> */}
       <Features />
       <Activities />
       <Weather />

@@ -1,6 +1,6 @@
 const pricing = {
-  title: "Nos Tarifs",
-  message: "Tarifs hiver - Réservation obligatoire (24h minimum à l'avance)",
+  title: "Tarifs été 2025",
+  message: "Pour toute réservation, merci de nous contacter par téléphone au 06 52 53 69 73",//"Tarifs hiver - Réservation obligatoire (24h minimum à l'avance)",
   sections: {
     accommodation: {
       title: "Formules Demi-pension",

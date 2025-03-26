@@ -1,6 +1,6 @@
 const pricing = {
-  title: "Our Rates",
-  message: "Winter Rates - Advance booking required (minimum 24h notice)",
+  title: "Summer Rates 2025",
+  message: "For all reservations, please contact us by phone at 06 52 53 69 73", //"Winter Rates - Advance booking required (minimum 24h notice)",
   sections: {
     accommodation: {
       title: "Half-Board Packages",
