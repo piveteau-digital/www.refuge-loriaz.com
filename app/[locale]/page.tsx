@@ -21,7 +21,7 @@ export default async function Home() {
     <>
       <Hero {...heroData} />
       {/* <div id="booking"> */}
-        <QuickBooking />
+        {/* <QuickBooking /> */}
       {/* </div> */}
       <Features />
       <Activities />

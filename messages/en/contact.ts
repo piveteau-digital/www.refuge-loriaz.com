@@ -30,11 +30,14 @@ const contact = {
     subject: "Subject",
     message: "Message",
     submit: "Send Message",
-    success: "Your message has been sent successfully. We will respond to you shortly.",
-    error: "An error occurred. Your message could not be sent."
+    success:
+      "Your message has been sent successfully. We will respond to you shortly.",
+    error: "An error occurred. Your message could not be sent.",
   },
-  bookingNotice: "For all reservations, please contact us by phone at:",
-  specialBookingNotice: "For all reservations of more than 10 people, please contact us by phone at:",
+  bookingNotice:
+    "For all reservations for this summer, please contact us by phone at:",
+  specialBookingNotice:
+    "For all reservations for this summer, please contact us by phone at:",
 };
 
 export default contact;

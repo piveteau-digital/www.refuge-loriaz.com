@@ -33,8 +33,8 @@ const contact = {
     success: "Votre message a bien été envoyé. Nous vous répondrons rapidement.",
     error: "Une erreur s'est produite. Votre message n'a pas pu être envoyé."
   },
-  bookingNotice: "Pour toutes réservations, merci de nous contacter par téléphone au :",
-  specialBookingNotice: "Pour toutes réservations de plus de 10 personnes, merci de nous contacter par téléphone au :",
+  bookingNotice: "Pour toutes réservations pour cette été, merci de nous contacter par téléphone au :",
+  specialBookingNotice: "Pour toutes réservations pour cette été, merci de nous contacter par téléphone au :",
 };
 
 export default contact;

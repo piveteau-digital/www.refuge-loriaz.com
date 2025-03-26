@@ -17,19 +17,19 @@ export default function PricesPage() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="bg-white rounded-lg shadow-lg p-6"
+      className="bg-white shadow-lg p-6 rounded-lg"
     >
       <div className="flex justify-between items-start mb-4">
-        <h3 className="text-xl font-semibold">{item.type}</h3>
+        <h3 className="font-semibold text-xl">{item.type}</h3>
         <div className="text-right">
-          <span className="text-2xl font-bold text-sky-400">{item.price}</span>
-          <p className="text-sm text-gray-600">{item.details}</p>
+          <span className="font-bold text-sky-400 text-2xl">{item.price}</span>
+          <p className="text-gray-600 text-sm">{item.details}</p>
         </div>
       </div>
       <ul className="space-y-2">
         {item.includes.map((detail: string, idx: number) => (
           <li key={idx} className="flex items-center text-gray-700">
-            <span className="w-2 h-2 bg-sky-400 rounded-full mr-2" />
+            <span className="bg-sky-400 mr-2 rounded-full w-2 h-2" />
             {detail}
           </li>
         ))}
@@ -38,7 +38,7 @@ export default function PricesPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="bg-gray-50 min-h-screen">
       <div className="relative h-[50vh] overflow-hidden">
         <Image
           src={"/assets/images/heading-section.jpeg"}
@@ -48,34 +48,34 @@ export default function PricesPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="absolute inset-0 flex justify-center items-center">
+          <div className="text-white text-center">
+            <h1 className="mb-4 font-bold text-4xl md:text-5xl">
               {t("title")}
             </h1>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto px-4">
+            <p className="mx-auto px-4 max-w-2xl text-lg md:text-xl">
               {t("message")}
             </p>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="mx-auto px-4 py-8 container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto"
+          className="mx-auto max-w-4xl"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
+          <h1 className="mb-8 font-bold text-3xl md:text-4xl text-center">
             {t("title")}
           </h1>
 
           {/* Accommodation */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">
+            <h2 className="mb-6 font-bold text-2xl">
               {t("sections.accommodation.title")}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
               {t
                 .raw("sections.accommodation.items")
                 .map((item: any, index: number) =>
@@ -86,10 +86,10 @@ export default function PricesPage() {
 
           {/* Meals */}
           {/* <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">
+            <h2 className="mb-6 font-bold text-2xl">
               {t("sections.meals.title")}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="gap-6 grid grid-cols-1 md:grid-cols-3">
               {t
                 .raw("sections.meals.items")
                 .map((item: any, index: number) =>
@@ -100,10 +100,10 @@ export default function PricesPage() {
 
           {/* Activities */}
           {/* <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">
+            <h2 className="mb-6 font-bold text-2xl">
               {t("sections.activities.title")}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
               {t
                 .raw("sections.activities.items")
                 .map((item: any, index: number) =>
@@ -114,10 +114,10 @@ export default function PricesPage() {
 
           {/* Extras */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold mb-6">
+            <h2 className="mb-6 font-bold text-2xl">
               {t("sections.extras.title")}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
               {t
                 .raw("sections.extras.items")
                 .map((item: any, index: number) =>
@@ -131,12 +131,12 @@ export default function PricesPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-sky-50 rounded-lg p-6 mb-8"
+            className="bg-sky-50 mb-8 p-6 rounded-lg"
           >
             <div className="flex items-start">
-              <Info className="w-6 h-6 text-sky-400 mr-4 flex-shrink-0 mt-1" />
+              <Info className="flex-shrink-0 mt-1 mr-4 w-6 h-6 text-sky-400" />
               <div>
-                <h3 className="text-xl font-bold mb-2">
+                <h3 className="mb-2 font-bold text-xl">
                   {t("importantInfo.title")}
                 </h3>
                 <ul className="space-y-2 text-gray-700">
